@@ -62,20 +62,6 @@ Enpresa departamentuka antolatu da: `eklipse` OU nagusiaren barruan 3 OU daude, 
 
 ![Unitate-esleipenak](img/08_GPO_unitate_esleipenak.png)
 
-### 1.4 Bezeroaren integrazioa
-
-Domeinuko bezeroak (`carrasco.jokin` erabiltzailea) DHCP zerbitzariaren bidez jasotzen ditu sare-parametroak, zerbitzariaren tarte berean:
-
-| Parametroa | Balioa |
-|---|---|
-| IP helbidea | 192.168.5.105 (DHCP bidez) |
-| Azpisare-maskara | 255.255.255.0 |
-| Irteera-atea | 192.168.5.254 |
-| DHCP zerbitzaria | 192.168.5.1 |
-| DNS zerbitzaria | 192.168.5.1 (domeinuko zerbitzaria) |
-| DNS atzizkia | eklipse.eus |
-
-![Bezeroaren sare-konfigurazioa](img/17_bezeroa_ipconfig.png)
 
 ---
 
