@@ -83,7 +83,7 @@ DHCP zerbitzaria `WindowsZerbitzaria` makinan dago (192.168.5.1). `eklipse` izen
 
 ## 3. Jitsi (audio- eta bideo-zerbitzaria)
 
-Jitsi Meet Linux zerbitzari batean dago instalatuta (`jitsi`, 192.168.5.8) eta `jitsi.eklipse.eus` izenarekin ebazten da, DNS zerbitzariaren A eta PTR erregistroei esker. Zerbitzu berak audioa eta bideoa kudeatzen ditu bileretan.
+Jitsi Meet Linux zerbitzari batean dago instalatuta (`jitsi`, 192.168.5.8) eta `jitsi.eklipse.eus` izenarekin ebazten da, DNS zerbitzariaren eta PTR erregistroei esker. Zerbitzu berak audioa eta bideoa kudeatzen ditu bileretan.
 
 `jitsi-videobridge2` zerbitzua gaituta dago eta martxan (`active (running)`):
 
