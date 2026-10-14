@@ -28,9 +28,9 @@ Enpresa departamentuka antolatu da: `eklipse` OU nagusiaren barruan 3 OU daude, 
 
 | OU | Taldeak | Erabiltzaileak |
 |---|---|---|
-| Atoietako_Operazioak | DJ_Kontrataz… | Luken P. Pa…, Xabier G. Gu… |
-| Kudeaketa_Korporatiboa | Giza_Baliabideak, Marketina | Eneko T. Ze…, Jakes D. Rio, Oinatz Goik…, Urtzi X. Barre… |
-| Sistemak_IT-Teknikariak | IT_Sistemak, Programatza… | Asier X. Larr…, Cristian J. Eri…, Jokin Carrasco, Oier B. Erost… |
+| Atoietako_Operazioak | DJ_Kontratazioa | Luken P. Pagaldai, Xabier G. Gayubas |
+| Kudeaketa_Korporatiboa | Giza_Baliabideak, Marketina | Eneko T. Zengotita, Jakes D. Rio, Oinatz Goikoetxea, Urtzi X. Barrero |
+| Sistemak_IT-Teknikariak | IT_Sistemak, Programatzaileak | Asier X. Larrañaga, Cristian J. Erique, Jokin Carrasco, Oier B. Erostarbe |
 
 ![OU Atoietako_Operazioak](img/02_OU_atoietako_operazioak.png)
 
