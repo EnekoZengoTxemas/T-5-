@@ -91,7 +91,7 @@ rs.status()
 
 ---
 
-## 2. Datu Baseak - DOKUMENTUA
+## 2. Datu Baseak
 
 `[Bazkideak] ───< [VIP Erreserbak] ───< [Sarrerak] │ [Produktuak / Inbentarioa] ──< [Salmenta Enpt.] ───< [Salmentak] │ │ [Stock Mugimenduak] [TPV Terminalak]`
 
