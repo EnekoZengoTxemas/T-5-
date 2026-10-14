@@ -311,7 +311,7 @@ Proiektuak hiru sentsore nagusi ditu: Tenperatura, Dezibelioak eta Alkoholimetro
 
 Datuak ondo txertatu ondoren, MongoDB Compass-eko bildumaren panelean hiru dokumentuak agertzen dira beren eremu eta balio guztiekin, proiekturako erabilgarri eta prest.
 
-![MongoDB Compass - eklipse_sentsoreak bilduma](docs/images/datu-baseak-mongodb-compass.png)
+![MongoDB Compass - eklipse_sentsoreak bilduma](images/datu-baseak-mongodb-compass.png)
 
 ---
 
@@ -325,15 +325,15 @@ Windows serverraren komprobapen orokor bat egin da, IP mapa bat sortzeko. IPak l
 
 Ikusi izan dugu zein zerbitzu dauden aktibo momentuan, eta hauek non dauden ipinita. Honen ezker ere ikusa da kali linux esaten "segurunez windows 2019 erabiltzen hari da".
 
-![Nmap zerbitzu-eskaneoa eta OS detekzioa](docs/images/ziber-nmap-servicios.png)
+![Nmap zerbitzu-eskaneoa eta OS detekzioa](images/ziber-nmap-servicios.png)
 
 ### Ahultasun edo hedapen bilaketa
 
 Windows Serverrean egin da saiakera eta ikusi da tcp irekiak eta ahultasunak. Pasahitza ezin izan da lortu, hydra motelegia delako.
 
-![Nmap vuln script - ahultasun bilaketa](docs/images/ziber-nmap-vuln.png)
+![Nmap vuln script - ahultasun bilaketa](images/ziber-nmap-vuln.png)
 
-![Hydra bidezko brute-force saiakera](docs/images/ziber-hydra-bruteforce.png)
+![Hydra bidezko brute-force saiakera](images/ziber-hydra-bruteforce.png)
 
 ### Ahultasun ustiaketa
 
@@ -433,7 +433,7 @@ Atal honetan gailu-mota bakoitzaren unitateko prezioa, ezaugarri teknikoak eta z
 
 Portatil hauek harrerako kudeaketa bizkorra eta erreserba-sistema konplexuak atzerapenik gabe exekutatzeko aukera ematen dute. Prozesadore multinukleoak eta 32 GB RAM memoriak aplikazio asko aldi berean irekita izatea bermatzen dute. Txartel grafiko dedikatuak kartelak edo sustapen-bideoak unean bertan editatzeko aukera ematen du. SSD NVMe diskoak sistema operatiboa eta dokumentuak segundotan kargatzen ditu.
 
-![Harrerako portatilak erabiltzen](docs/images/eklipse-harrera-portatilak.png)
+![Harrerako portatilak erabiltzen](images/eklipse-harrera-portatilak.png)
 
 #### 2. Pantaila Handiak eta Mini PC Kutsuak/Ezkutatzekoak (2 Unitate)
 
@@ -464,7 +464,7 @@ Mini PC-ak ezin hobeto ezkutatzen dira pantailen atzealdean VESA euskarrien bide
 | **Guztira Mahaigaineko PC Pack (Unitate 1):** |  | **615,00 €** |
 | **Subtotal Mahaigaineko PCak (12 Unitate):** |  | **7.380,00 €** |
 
-![Mahaigaineko PC pack-aren erabilera](docs/images/eklipse-mahaigaineko-pack.jpg)
+![Mahaigaineko PC pack-aren erabilera](images/eklipse-mahaigaineko-pack.jpg)
 
 **Zergatik hautatzen diren eta nola funtzionatzen duten:**
 
@@ -509,7 +509,7 @@ Alkohol Isopropilikoa (99.9%) eta mikrofibrazko zapiak prozesadorearen eta disip
 
 Eroalea ez den errendimendu altuko pasta termikoak CPUaren eta disipadorearen arteko mikro-akatsak betetzen ditu, bero-transmisio optimoa ziurtatuz eta zirkuitulabur arriskua baztertuz.
 
-![Muntaia lantegia eta lanabesak](docs/images/eklipse-muntaia-lanabesak.png)
+![Muntaia lantegia eta lanabesak](images/eklipse-muntaia-lanabesak.png)
 
 ### Ekipamendu Bakoitzean Erabilitako Softwarea
 
@@ -538,7 +538,7 @@ Lantegian nahiz diskotekaren barruan PRL lan-segurtasuneko seinalizazio hauek ja
 
 EKLIPSE DISCOko instalazioan sortutako hondakinak gutxitzeko, kartoia eta papera tolestu eta edukiontzi urdinera botako dira, eta plastikozko bilgarriak berriz horira. Elementu nagusien jatorrizko kaxak ez dira botako; biltegian gorde eta etiketatuko dira bermeak (RMA) kudeatzeko edo garraiatzeko. Azkenik, kableak eta osagai elektriko zaharrak garbigunera edo RAEE kudeatzaile batera eramango dira, inoiz ez etxeko hondakinetara.
 
-![Birziklatze sistema eta hondakinen kudeaketa lantegian](docs/images/eklipse-birziklatze-sistema.jpg)
+![Birziklatze sistema eta hondakinen kudeaketa lantegian](images/eklipse-birziklatze-sistema.jpg)
 
 ---
 
