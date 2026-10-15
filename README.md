@@ -784,17 +784,3 @@ GLPI bidez erregistratutako intzidentzia arrunten fluxua:
 - Tiketa: *«Barra 1eko TPV inprimagailuak ez du papera mozten»* → Esleitua: `xabier` → Egoera: Konponduta.
 - Tiketa: *«VIP aretoko pantaila erraldoiaren seinalearen egiaztapena»* → Esleitua: `joan` → Egoera: Amaituta.
 
-#### GLPI Segurtasun-oharrak
-
-![GLPI Segurtasun Oharrak](assets/image3.png)
-
-GLPI-ren hasierako panelak **hiru segurtasun-abisu** erakusten ditu, eta hurrengo ekintzekin zuzendu dira:
-
-| # | Abisua | Arrazoia | Konponbidea |
-| :---: | :--- | :--- | :--- |
-| **1** | **Erabiltzaile lehenetsien pasahitzak aldatu** | `glpi`, `normal`, `post-only` eta `tech` kontuen gakoak publikoak dira | *Administrazioa → Erabiltzaileak* atalean pasahitz sendoak (12+ karaktere) ezarri dira |
-| **2** | **`install/install.php` ezabatu** | Instalatzailea berriro exekutatzeko arriskua | `rm -f /var/www/html/glpi/install/install.php` komandoaren bidez fitxategia ezabatu da |
-| **3** | **PHP-n `session.cookie_httponly` aktibatu** | XSS bidezko saio-lapurretak saihesteko | `/etc/php/8.2/apache2/php.ini` fitxategian `session.cookie_httponly = On` jarri eta zerbitzaria berrabiarazi da |
-
----
-
