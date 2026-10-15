@@ -4,72 +4,70 @@
 
 <style>
   :root {
-    --accent-purple: #7c3aed;
-    --light-bg: #000000;
-    --light-card: #f8fafc;
-    --text-primary: #000000;
-    --text-muted: #475569;
-    --border-color: #cbd5e1;
+    --accent-purple: #a855f7;
+    --accent-glow: #c084fc;
+    --dark-bg: #090d16;
+    --dark-card: #131722;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #2e3748;
   }
 
   body, .markdown-body {
-    background-color: var(--light-bg) !important;
+    background-color: var(--dark-bg) !important;
     color: var(--text-primary) !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     line-height: 1.65;
   }
 
-  /* Encabezados en texto negro plano sin resplandor */
+  /* Encabezados Neón / Dark */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Rajdhani', 'Orbitron', sans-serif !important;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #000000 !important;
+    color: var(--text-primary) !important;
     font-weight: 700;
-    text-shadow: none !important;
   }
 
   h1 {
     font-family: 'Orbitron', sans-serif !important;
-    color: #000000 !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
     border-bottom: 2px solid var(--accent-purple) !important;
     padding-bottom: 12px;
     margin-top: 24px;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
   }
 
   h2 {
-    color: #000000 !important;
+    color: #ffffff !important;
     border-left: 4px solid var(--accent-purple) !important;
     padding-left: 12px;
-    text-shadow: none !important;
     margin-top: 36px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 6px;
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
   }
 
   h3 {
-    color: #000000 !important;
+    color: #e2e8f0 !important;
     margin-top: 26px;
   }
 
   h4 {
-    color: #1e293b !important;
+    color: #cbd5e1 !important;
     margin-top: 18px;
   }
 
-  /* Enlaces normales */
+  /* Enlaces */
   a {
     color: var(--accent-purple) !important;
     text-decoration: none !important;
     font-weight: 600;
-    text-shadow: none !important;
   }
 
   a:hover {
-    color: #4c1d95 !important;
+    color: var(--accent-glow) !important;
     text-decoration: underline !important;
-    text-shadow: none !important;
   }
 
   /* Navegación */
@@ -79,7 +77,7 @@
     gap: 10px;
     margin: 20px 0 35px 0;
     padding: 16px;
-    background: var(--light-card);
+    background: var(--dark-card);
     border: 1px solid var(--border-color);
     border-radius: 12px;
   }
@@ -87,10 +85,10 @@
   .disco-nav-pill {
     display: inline-block;
     padding: 8px 16px;
-    background: #000000;
+    background: #090d16;
     border: 1px solid var(--accent-purple);
     border-radius: 24px;
-    color: #000000 !important;
+    color: #ffffff !important;
     font-family: 'Rajdhani', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
@@ -101,7 +99,8 @@
 
   .disco-nav-pill:hover {
     background: var(--accent-purple) !important;
-    color: #000000 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
     transform: translateY(-2px);
   }
 
@@ -110,9 +109,10 @@
     text-align: center;
     padding: 40px 20px;
     margin-bottom: 30px;
-    background: var(--light-card);
+    background: var(--dark-card);
     border: 1px solid var(--accent-purple);
     border-radius: 16px;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
   }
 
   .eklipse-hero h1 {
@@ -121,14 +121,14 @@
     padding: 0;
     border: none !important;
     letter-spacing: 4px;
-    color: #000000 !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
   }
 
   .eklipse-tagline {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.25rem;
-    color: #334155;
+    color: #cbd5e1;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 8px;
@@ -138,9 +138,9 @@
   .badge-neon {
     display: inline-block;
     padding: 4px 12px;
-    background: #f1f5f9;
+    background: #1e293b;
     border: 1px solid var(--accent-purple);
-    color: #000000;
+    color: #ffffff;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 700;
@@ -155,15 +155,15 @@
     border-collapse: separate !important;
     border-spacing: 0 !important;
     margin: 20px 0 !important;
-    background-color: #000000 !important;
+    background-color: var(--dark-card) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: 10px !important;
     overflow: hidden !important;
   }
 
   th {
-    background: #f1f5f9 !important;
-    color: #000000 !important;
+    background: #1e293b !important;
+    color: #ffffff !important;
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 1.05rem !important;
     letter-spacing: 1px !important;
@@ -176,11 +176,11 @@
   td {
     border-bottom: 1px solid var(--border-color) !important;
     padding: 11px 14px !important;
-    color: #000000 !important;
+    color: #e2e8f0 !important;
   }
 
   tr:nth-child(even) td {
-    background-color: #f8fafc !important;
+    background-color: #181f2e !important;
   }
 
   /* Bloques de Código */
@@ -189,8 +189,8 @@
   }
 
   code:not(pre code) {
-    background: #f1f5f9 !important;
-    color: #000000 !important;
+    background: #1e293b !important;
+    color: #a855f7 !important;
     border: 1px solid var(--border-color) !important;
     padding: 2px 7px !important;
     border-radius: 4px !important;
@@ -198,20 +198,20 @@
   }
 
   pre {
-    background: #f8fafc !important;
+    background: #131722 !important;
     border: 1px solid var(--border-color) !important;
     border-left: 4px solid var(--accent-purple) !important;
     border-radius: 8px !important;
     padding: 16px !important;
-    color: #000000 !important;
+    color: #f1f5f9 !important;
   }
 
   /* Citas */
   blockquote {
-    background: #f8fafc !important;
+    background: #131722 !important;
     border-left: 4px solid var(--accent-purple) !important;
     border-radius: 0 8px 8px 0;
-    color: #1e293b !important;
+    color: #cbd5e1 !important;
     padding: 14px 20px !important;
     margin: 20px 0 !important;
   }
@@ -229,7 +229,7 @@
   <h1>EKLIPSE DISCO</h1>
   <div class="eklipse-tagline">Arkitektura Teknologikoa, pfSense Proxmox, Zibersegurtasuna eta Kudeaketa Osoa</div>
   <div style="margin-top: 15px;">
-    <span class="badge-neon">🟣 Purple Accent & Light Mode</span>
+    <span class="badge-neon">🟣 Purple Accent & Dark Theme</span>
     <span class="badge-neon">🛡️ pfSense 2.6.0 Proxmox VE</span>
     <span class="badge-neon">🌐 Eklipse.eus & GLPI</span>
     <span class="badge-neon">🌱 Euskadi 2030 Agenda</span>
