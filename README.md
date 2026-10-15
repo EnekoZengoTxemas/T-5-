@@ -1,6 +1,6 @@
 # EKLIPSE — DOKUMENTAZIOA
 
-Proiektu honetako dokumentazio teknikoa, ekonomikoa eta jasangarritasunekoa biltzen du README honek. Jatorrizko dokumentuak (Google Drive) hona kopiatu dira, formatua mantenduz.
+Proiektu honetako dokumentazio teknikoa, ekonomikoa eta jasangarritasunekoa biltzen du.
 
 ## Aurkibidea
 
