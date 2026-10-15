@@ -798,19 +798,3 @@ GLPI-ren hasierako panelak **hiru segurtasun-abisu** erakusten ditu, eta hurreng
 
 ---
 
-### 6.4. Hurrengo Urratsak
-
-![GLPI eta Webgunearen Garapena](assets/image4.png)
-
-- [x] **pfSense 2.6.0 Proxmox VE-n** instalatu, WAN/LAN/DMZ segmentatu eta OpenVPN zein Suricata konfiguratu.
-- [x] **GLPI-ko 3 segurtasun-abisuak** zuzendu (pasahitzak aldatu, `install.php` kendu eta `session.cookie_httponly` aktibatu).
-- [x] **WordPress eta Kubio diseinua** ezarri, Rajdhani eta Inter letra-tipoekin batera.
-- [ ] **Jasangarritasun Plana** webgune publikoan behin betiko argitaratu (`eklipse.eus/jasangarritasuna`).
-- [ ] Diskotekako **12 PC, 2 portatil eta 2 pantaila handien** inbentarioa eta agente automatikoak GLPI-rekin sinkronizatu.
-
----
-
-<div style="text-align: center; padding: 25px 10px; color: var(--text-muted); font-size: 0.9rem;">
-  <p>🍸 <strong>EKLIPSE DISCO PUB</strong> — Sistema Informatikoak, Sareak eta Zibersegurtasuna © 2026</p>
-  <p style="color: var(--neon-purple); font-weight: 600;">Neon Purple & Dark Theme • Dokumentazio Osoa Eguneratua</p>
-</div>
