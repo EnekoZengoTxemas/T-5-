@@ -583,12 +583,12 @@ Oinarrizko esparruak:
 
 ### 1.2. Eklipsen Landuko Ditugun Garapen Jasangarrirako Helburuak (GJHak)
 
-- 🟢 **7. GJHa (Energia eskuragarria eta ez-kutsatzailea):** IoT bidezko klimatizazio adimenduna aforoaren arabera eta LED argiztapen eraginkorra.
-- 🟢 **8. GJHa (Lan duina eta hazkunde ekonomikoa):** PRL informatizatua, txanda orekatuak eta TPV bidezko lan-kargaren murrizketa.
-- 🟢 **9. GJHa (Industria, berrikuntza eta azpiegitura):** Proxmox bidezko birtualizazio berdea eta telemetria adimenduna stock-galketak saihesteko.
-- 🟢 **12. GJHa (Ekoizpen eta kontsumo arduratsua):** Ekodiseinua (RAM/SSD berrerabilpena), paperaren ezabapena (faktura digitalak) eta RAEE hondakinen kudeaketa profesionala.
-- 🟢 **13. GJHa (Klimaren aldeko ekintza):** Zerbitzarien efizientzia energetikoa eta berotegi-efektuko gasen murrizketa.
-- 🟢 **Euskadiko 18. GJHa (Hizkuntza eta Kultura Aniztasuna):** Webgunea, TPV interfazeak eta kudeaketa euskaraz bermatzea, LANEKI/JAKINBAI terminologiarekin bat eginez eta tokiko musika sustatuz.
+- **7. GJHa (Energia eskuragarria eta ez-kutsatzailea):** IoT bidezko klimatizazio adimenduna aforoaren arabera eta LED argiztapen eraginkorra.
+- **8. GJHa (Lan duina eta hazkunde ekonomikoa):** PRL informatizatua, txanda orekatuak eta TPV bidezko lan-kargaren murrizketa.
+- **9. GJHa (Industria, berrikuntza eta azpiegitura):** Proxmox bidezko birtualizazio berdea eta telemetria adimenduna stock-galketak saihesteko.
+- **12. GJHa (Ekoizpen eta kontsumo arduratsua):** Ekodiseinua (RAM/SSD berrerabilpena), paperaren ezabapena (faktura digitalak) eta RAEE hondakinen kudeaketa profesionala.
+- **13. GJHa (Klimaren aldeko ekintza):** Zerbitzarien efizientzia energetikoa eta berotegi-efektuko gasen murrizketa.
+- **Euskadiko 18. GJHa (Hizkuntza eta Kultura Aniztasuna):** Webgunea, TPV interfazeak eta kudeaketa euskaraz bermatzea, LANEKI/JAKINBAI terminologiarekin bat eginez eta tokiko musika sustatuz.
 
 ### 1.3. Gobernantza-ardatza: erantzukizuna eta gardentasuna
 
