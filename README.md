@@ -1,6 +1,5 @@
 # EKLIPSE — DOKUMENTAZIOA
 
-Proiektu honetako dokumentazio teknikoa, ekonomikoa eta jasangarritasunekoa biltzen du.
 
 ## Aurkibidea
 
