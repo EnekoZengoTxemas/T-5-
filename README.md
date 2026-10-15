@@ -1,13 +1,319 @@
-# EKLIPSE — DOKUMENTAZIOA
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
+<style>
+  :root {
+    --neon-purple: #b026ff;
+    --neon-purple-glow: rgba(176, 38, 255, 0.65);
+    --neon-purple-subtle: rgba(176, 38, 255, 0.15);
+    --neon-magenta: #e056fd;
+    --neon-cyan: #00f0ff;
+    --dark-bg: #090714;
+    --dark-card: #120d24;
+    --dark-card-hover: #1a1236;
+    --text-primary: #f5f3ff;
+    --text-muted: #c4b5fd;
+    --border-color: rgba(176, 38, 255, 0.35);
+  }
 
-## Aurkibidea
+  body, .markdown-body {
+    background-color: var(--dark-bg) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    line-height: 1.65;
+  }
 
-1. [Datu-Baseen Estrategia eta Arkitektura](#1-datu-baseen-estrategia-eta-arkitektura---diskoteka)
-2. [Datu Baseak - DOKUMENTUA](#2-datu-baseak---dokumentua)
-3. [Ziber eta segurtasuna](#3-ziber-eta-segurtasuna)
+  /* Headings with Rajdhani / Orbitron & Neon Purple Glow */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', 'Orbitron', sans-serif !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff !important;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: 'Orbitron', sans-serif !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 10px var(--neon-purple), 0 0 25px var(--neon-purple-glow);
+    border-bottom: 2px solid var(--neon-purple) !important;
+    padding-bottom: 12px;
+    margin-top: 24px;
+  }
+
+  h2 {
+    color: #eed6ff !important;
+    border-left: 4px solid var(--neon-purple) !important;
+    padding-left: 12px;
+    text-shadow: 0 0 8px rgba(176, 38, 255, 0.45);
+    margin-top: 36px;
+    border-bottom: 1px solid var(--neon-purple-subtle);
+    padding-bottom: 6px;
+  }
+
+  h3 {
+    color: var(--neon-magenta) !important;
+    margin-top: 26px;
+  }
+
+  h4 {
+    color: #d8b4fe !important;
+    margin-top: 18px;
+  }
+
+  /* Disco Pub Links & Buttons */
+  a {
+    color: var(--neon-purple) !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: all 0.25s ease-in-out;
+  }
+
+  a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px var(--neon-purple), 0 0 16px var(--neon-purple);
+  }
+
+  /* Table of Contents & Navigation Pills */
+  .disco-nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 35px 0;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(18, 13, 36, 0.95), rgba(30, 16, 60, 0.7));
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(176, 38, 255, 0.2);
+  }
+
+  .disco-nav-pill {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(176, 38, 255, 0.12);
+    border: 1px solid var(--neon-purple);
+    border-radius: 24px;
+    color: #f3e8ff !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+
+  .disco-nav-pill:hover {
+    background: var(--neon-purple) !important;
+    color: #090714 !important;
+    box-shadow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-purple-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Disco Header Banner */
+  .eklipse-hero {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    background: radial-gradient(circle at center, rgba(176, 38, 255, 0.22) 0%, rgba(9, 7, 20, 0.95) 75%);
+    border: 1px solid var(--neon-purple);
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(176, 38, 255, 0.3), inset 0 0 20px rgba(176, 38, 255, 0.15);
+  }
+
+  .eklipse-hero h1 {
+    font-size: 2.8rem;
+    margin: 0;
+    padding: 0;
+    border: none !important;
+    letter-spacing: 4px;
+  }
+
+  .eklipse-tagline {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.25rem;
+    color: var(--neon-magenta);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 8px;
+  }
+
+  .badge-neon {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(176, 38, 255, 0.2);
+    border: 1px solid var(--neon-purple);
+    color: #f3e8ff;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 4px;
+    box-shadow: 0 0 8px rgba(176, 38, 255, 0.3);
+  }
+
+  /* Tables in Disco Dark Mode */
+  table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin: 20px 0 !important;
+    background-color: var(--dark-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  th {
+    background: linear-gradient(90deg, rgba(176, 38, 255, 0.35), rgba(124, 58, 237, 0.35)) !important;
+    color: #ffffff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    border-bottom: 2px solid var(--neon-purple) !important;
+    border-top: none !important;
+    padding: 12px 14px !important;
+    text-align: left !important;
+  }
+
+  td {
+    border-bottom: 1px solid rgba(176, 38, 255, 0.12) !important;
+    border-top: none !important;
+    padding: 11px 14px !important;
+    color: #e2e8f0 !important;
+  }
+
+  tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+  }
+
+  tr:hover td {
+    background-color: rgba(176, 38, 255, 0.08) !important;
+  }
+
+  /* Code Blocks & Inline Code */
+  code, pre {
+    font-family: 'JetBrains Mono', Consolas, monospace !important;
+  }
+
+  code:not(pre code) {
+    background: rgba(176, 38, 255, 0.18) !important;
+    color: #f3e8ff !important;
+    border: 1px solid rgba(176, 38, 255, 0.4) !important;
+    padding: 2px 7px !important;
+    border-radius: 4px !important;
+    font-size: 0.9em;
+  }
+
+  pre {
+    background: #080511 !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 4px solid var(--neon-purple) !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  /* Blockquotes & Callouts */
+  blockquote {
+    background: rgba(176, 38, 255, 0.08) !important;
+    border-left: 4px solid var(--neon-purple) !important;
+    border-radius: 0 8px 8px 0;
+    color: #e9d5ff !important;
+    padding: 14px 20px !important;
+    margin: 20px 0 !important;
+    box-shadow: 0 0 15px rgba(176, 38, 255, 0.08);
+  }
+
+  /* Images styling */
+  img {
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(176, 38, 255, 0.25);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 18px auto;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+    margin: 40px 0;
+  }
+</style>
+
+<div class="eklipse-hero">
+  <div style="font-size: 3rem; margin-bottom: 5px;">⚡ 🍸 🎶</div>
+  <h1>EKLIPSE DISCO</h1>
+  <div class="eklipse-tagline">Arkitektura Teknologikoa, pfSense Proxmox, Zibersegurtasuna eta Kudeaketa Osoa</div>
+  <div style="margin-top: 15px;">
+    <span class="badge-neon">🟣 Neon Purple & Dark Mode</span>
+    <span class="badge-neon">🛡️ pfSense 2.6.0 Proxmox VE</span>
+    <span class="badge-neon">🌐 Eklipse.eus & GLPI</span>
+    <span class="badge-neon">🌱 Euskadi 2030 Agenda</span>
+  </div>
+</div>
+
+---
+
+## 📌 Aurkibidea (Eduki-Taula)
+
+<div class="disco-nav-container">
+  <a class="disco-nav-pill" href="#1-datu-baseen-estrategia-eta-arkitektura---diskoteka">1. Arkitektura & IoT</a>
+  <a class="disco-nav-pill" href="#2-datu-baseak">2. Datu-Baseak (SQL & Mongo)</a>
+  <a class="disco-nav-pill" href="#3-ziber-eta-segurtasuna">3. Zibersegurtasuna & pfSense</a>
+  <a class="disco-nav-pill" href="#4-eklipse-disco-aretoetarako-proposamen-tekniko-ekonomiko-eta-orokorra">4. Hardwarea & Aurrekontua</a>
+  <a class="disco-nav-pill" href="#5-jasangarritasun-plana">5. Jasangarritasuna (GJH)</a>
+  <a class="disco-nav-pill" href="#6-eklipse--webgunea-eta-glpi-dokumentazioa">6. Webgunea & GLPI Osoa</a>
+</div>
+
+1. [Datu-Baseen Estrategia eta Arkitektura — Diskoteka](#1-datu-baseen-estrategia-eta-arkitektura---diskoteka)
+   - [1.1. Denbora Errealeko Sarrera (IoT eta Lokalaren Monitorizazioa)](#11-denbora-errealeko-sarrera-iot-eta-lokalaren-monitorizazioa)
+   - [1.2. Harrera Zerbitzua eta Bezeroen Kudeaketa](#12-harrera-zerbitzua-eta-bezeroen-kudeaketa)
+   - [1.3. Logistika eta Eragiketa Datuak (Stock-a eta Salmentak)](#13-logistika-eta-eragiketa-datuak-stock-a-eta-salmentak)
+   - [1.4. Erresilientzia eta Erabilgarritasun Handia (HA)](#2-erresilientzia-erabilgarritasuna-eta-erabilgarritasun-handia-ha)
+   - [1.5. Justifikazio Teknikoa eta Sistemaren Monitorizazioa](#3-justifikazio-teknikoa-eta-sistemaren-monitorizazioa)
+2. [Datu Baseak](#2-datu-baseak)
+   - [2.1. Eredu Zirkularra eta 3NF Egitura](#2-datu-baseak)
+   - [2.2. Taulen Definizioa DDL (SQL)](#taulen-definizioa-ddl-sql)
+   - [2.3. Diseinuaren Punturik Garrantzitsuenak](#diseinuaren-punturik-garrantzitsuenak)
+   - [2.4. Erabiltzaile eta Portuen Justifikazioa](#erabiltzaile-eta-portuen-justifikazioa---zergatik)
+   - [2.5. MongoDB Sentsoreak eta JSON Dokumentuak](#mongodb-instalazioa-eta-konfigurazioa-eklipse-proiektua)
+3. [Ziber eta segurtasuna & pfSense Proxmox-en](#3-ziber-eta-segurtasuna)
+   - [3.1. Informazio publikoa eta zerbitzuen eskaneoa (Nmap & Hydra)](#informazio-publikoaren-bilakaera)
+   - [3.2. Agertoki bakoitzeko Erantzun-Planak (A–E)](#segurtasuna)
+   - [3.3. Kontingentzia-Aurrekontuaren Estimazio Osoa](#3-kontingentzia-aurrekontuaren-estimazio-osoa)
+   - [3.4. Pasahitzen Politika eta Segurtasun Fisikoa](#pasahitzen-politika)
+   - [3.5. pfSense Proxmox VE-n: Instalazio eta Konfigurazio Gida Aurreratua](#pfsense-proxmox-en-instalazio-gida-laburra)
+   - [3.6. Sarearen Topologia, DMZ eta Suebaki-Arauak](#sarearen-diseinua)
+   - [3.7. Urruneko Sarbidea (OpenVPN) eta NIDS (Suricata)](#urruneko-sarbidea-vpn)
 4. [EKLIPSE DISCO aretoetarako proposamen tekniko, ekonomiko eta orokorra](#4-eklipse-disco-aretoetarako-proposamen-tekniko-ekonomiko-eta-orokorra)
-5. [Jasangarritasun Plana](#5-jasangarritasun-plana)
+   - [4.1. Ekipamenduen Xehetasunak (Portatilak, Mini PCak, Mahaigainekoak)](#osagai-eta-gailuen-aurrekontu-xehatua)
+   - [4.2. Aurrekontu Orokorra eta Finantza Laburpena (BEZ %21)](#aurrekontu-orokorra-eta-finantza-laburpena)
+   - [4.3. Muntaia, ESD Lanabesak, PRL eta RAEE Birziklatzea](#muntaia-eta-konfiguraziorako-lanabesak)
+5. [Jasangarritasun Plana (SDG Compass eta GJHak)](#5-jasangarritasun-plana)
+   - [5.1. SDG Compass Metodologia eta ESG Zutabeak](#eklipse-ren-jasangarritasun-plana)
+   - [5.2. Landutako GJHak (7, 8, 9, 12, 13 eta Euskadiko 18. GJHa)](#12-eklipsen-landuko-ditugun-garapen-jasangarrirako-helburuak-gjhak)
+   - [5.3. Inpaktuen Matrizea eta Gobernantza](#13-gobernantza-ardatza-erantzukizuna-eta-gardentasuna)
+6. [Eklipse – Webgunea eta GLPI Dokumentazioa (Osoa eta Eguneratua)](#6-eklipse--webgunea-eta-glpi-dokumentazioa)
+   - [6.1. Helburua eta Tresnen Laburpena](#61-helburua)
+   - [6.2. WordPress Webgunea (`eklipse.eus`)](#62-wordpress-webgunea)
+     - [A. Erabilera eta CMS Hautaketa](#webgunearen-erabilera)
+     - [B. Orriak eta Edukia](#edukia-eta-orriak)
+     - [C. Ezarritako Parametroak eta Pluginak](#instalazioan-ezarritako-parametroak)
+     - [D. Erabiltzaileak eta Rolak](#erabiltzaileen-egitura)
+     - [E. Kubio Diseinua eta CSS Aldaketak](#web-orriaren-diseinua)
+   - [6.3. GLPI IT Kudeaketa Sistema (`glpi.eklipse.eus`)](#63-glpi)
+     - [A. Erabilera eta Parametroak](#glpi-erabilera)
+     - [B. 9 Erabiltzaileak eta Baimen-Matrizea](#glpi-erabiltzaileen-zerrenda)
+     - [C. Enpresako Ekipoak (Aktiboak) eta Tiketak](#enpresako-ekipoak)
+     - [D. 3 Segurtasun-Oharrak eta Konponbideak](#glpi-segurtasun-oharrak)
+   - [6.4. Hurrengo Urratsak](#64-hurrengo-urratsak)
 
 ---
 
@@ -44,8 +350,8 @@ Inbentarioaren eta merkataritza-transakzioen fluxua kontrolatzea:
 
 Ezintasun teknikoen edo hardware akatsen aurrean datu-baseak funtzionatzen jarraituko duela bermatzeko, Denbora Errealeko Replikazio Aktibo/Pasiboko eskema bat ezarri da:
 
-| **Osagaia** | **Rola Arkitekturan** | **Sinkronizazio Mekanismoa** |
-| --- | --- | --- |
+| Osagaia | Rola Arkitekturan | Sinkronizazio Mekanismoa |
+| :--- | :--- | :--- |
 | **Nodul Nagusia (Primary/Master)** | Idazketak eta irakurketak jasotzen ditu denbora errealean. | Transakzio-logen etengabeko sinkronizazioa. |
 | **Bigarren Mailako Nodulua (Secondary/Replica)** | Nagusiaren kopia berdina itxaronaldi aktiboan. Nagusiak huts eginez gero zerbitzua hartzen du. | Sinkronizazio sinkrono edo asinkronoa denbora errealean. |
 
@@ -63,10 +369,7 @@ Ezintasun teknikoen edo hardware akatsen aurrean datu-baseak funtzionatzen jarra
 
 Datu-baseen funtzionamendu egokia egiaztatzeko, log-ak aztertzeko eta klusterraren zein replikazioaren konfigurazioa berrikusteko, prozedura hauek erabiltzen dira komando-kontsolatik:
 
-**MySQL Berrikuspena**
-
-Konfigurazio fitxategi nagusia: `/etc/mysql/mysql.conf.d/mysqld.cnf`
-
+**MySQL Berrikuspena** (`/etc/mysql/mysql.conf.d/mysqld.cnf`):
 ```bash
 sudo systemctl status mysql
 tail -f /var/log/mysql/error.log
@@ -76,10 +379,7 @@ SHOW MASTER STATUS;
 SHOW SLAVE STATUS\G
 ```
 
-**MongoDB Berrikuspena**
-
-Konfigurazio fitxategi nagusia: `/etc/mongod.conf`
-
+**MongoDB Berrikuspena** (`/etc/mongod.conf`):
 ```bash
 sudo systemctl status mongod
 tail -f /var/log/mongodb/mongod.log
@@ -92,23 +392,24 @@ rs.status()
 
 ## 2. Datu Baseak
 
-`[Bazkideak] ───< [VIP Erreserbak] ───< [Sarrerak] │ [Produktuak / Inbentarioa] ──< [Salmenta Enpt.] ───< [Salmentak] │ │ [Stock Mugimenduak] [TPV Terminalak]`
+```
+[Bazkideak] ───< [VIP Erreserbak] ───< [Sarrerak]
+      │
+[Produktuak / Inbentarioa] ──< [Salmenta Enpt.] ───< [Salmentak]
+      │                                                     │
+[Stock Mugimenduak]                                  [TPV Terminalak]
+```
 
-Datu-base hau Hirugarren Forma Normalari (3NF) jarraituz diseinatu dugu, diskotekaren eguneroko jarduera kaotikoan datuak ez bikoizteko, eragiketak azkartzeko eta informazioaren osotasuna bermatzeko. Aplikazioa lau modulu nagusitan banatu dugu, bakoitzak negozioaren arlo kritiko bati erantzuteko:
+Datu-base hau **Hirugarren Forma Normalari (3NF)** jarraituz diseinatu dugu, diskotekaren eguneroko jarduera kaotikoan datuak ez bikoizteko, eragiketak azkartzeko eta informazioaren osotasuna bermatzeko. Aplikazioa lau modulu nagusitan banatu dugu:
 
-- **→Bazkideak** (`bazkideak`): Bezeroen datu pertsonalak segurtasunez eta bakarrean gordetzen ditu (NAN eta posta elektronikoa bikoiztu gabe), sarreren eta VIP erreserben moduluarekin erraz lotzeko baina TPVko salmenta arruntei oztoporik egin gabe.
-- **→Logistika eta BEZa** (`produktuak`, `bez_motak`, `stock_mugimenduak`): Inbentarioaren eta barretan banatutako alkoholaren trazabilitatea zehatz mehatz mantentzen du, galeren eta mermen kontrola erraztuz. BEZ motak bereizita daudenez, aldaketa fiskaletara erraz egokitzen da.
-- **→Salmentak eta TPV** (`salmentak`, `salmenta_enptizioak`): Transakzio bakoitzaren burua eta xehetasunak banandu ditugu ticket bakoitzean produktu anitz sartu ahal izateko. Erosketa unean prezioa eta BEZa 'argazki' gisa gordetzen dira, etorkizunean produktuen prezioak aldatuta ere kontabilitate historikoa ukitu gabe geratzeko.
-- **→Sarrerak eta VIP** (`ekitaldiak`, `sarrerak`, `vip_erreserbak`): Atean QR bidezko sarbide azkarra eta VIP mahaien erreserbak (gutxieneko kontsumoak eta edukiera) kudeatzen ditu, betiere egindako ordainketa eta fakturazioarekin zuzenean lotuta.
-
-Banaketa modular honi esker, sistemak eraginkortasun altua eskaintzen du, mantentze-lanak errazten ditu eta akats operatibo zein ekonomikoak prebenitzen ditu.
+- **→ Bazkideak** (`bazkideak`): Bezeroen datu pertsonalak segurtasunez eta bakarrean gordetzen ditu (NAN eta posta elektronikoa bikoiztu gabe), sarreren eta VIP erreserben moduluarekin erraz lotzeko.
+- **→ Logistika eta BEZa** (`produktuak`, `bez_motak`, `stock_mugimenduak`): Inbentarioaren eta barretan banatutako alkoholaren trazabilitatea zehatz-mehatz mantentzen du.
+- **→ Salmentak eta TPV** (`salmentak`, `salmenta_enptizioak`): Transakzio bakoitzaren burua eta xehetasunak bananduta daude. Erosketa unean prezioa eta BEZa 'argazki' gisa gordetzen dira.
+- **→ Sarrerak eta VIP** (`ekitaldiak`, `sarrerak`, `vip_erreserbak`): Atean QR bidezko sarbide azkarra eta VIP mahaien erreserbak kudeatzen ditu.
 
 ### Taulen Definizioa DDL (SQL)
 
-#### A. Bazkideak eta Fidelizazioa (Bazkideak)
-
-Bazkideen datu pertsonalak kudeatzeko eta euren NAN/DNI zein posta elektronikoa babesteko.
-
+#### A. Bazkideak eta Fidelizazioa
 ```sql
 CREATE TABLE bazkideak (
     bazkide_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -123,61 +424,51 @@ CREATE TABLE bazkideak (
 );
 ```
 
-#### B. Logistika eta Inbentarioa (Inbentarioa / Produktuak)
-
-Tabernan banatutako alkohola eta gainontzeko produktuak kudeatzen ditu, baita BEZ (IVA) mota bakoitza ere.
-
+#### B. Logistika eta Inbentarioa
 ```sql
--- BEZ Motak (Orokorra %21, Murriztua %10, etab.)
 CREATE TABLE bez_motak (
     bez_id INT AUTO_INCREMENT PRIMARY KEY,
-    ehunekoa DECIMAL(5,2) NOT NULL, -- Adib. 21.00
+    ehunekoa DECIMAL(5,2) NOT NULL,
     deskribapena VARCHAR(50)
 );
 
--- Produktuen Katalogoa
 CREATE TABLE produktuak (
     produktua_id INT AUTO_INCREMENT PRIMARY KEY,
     izena VARCHAR(100) NOT NULL,
     kategoria ENUM('Alkohola', 'Freskagarria', 'Janaria', 'Merchandising', 'Beste bat') NOT NULL,
-    oinarrizko_prezioa DECIMAL(10,2) NOT NULL, -- Prezioa BEZ gabe
+    oinarrizko_prezioa DECIMAL(10,2) NOT NULL,
     bez_id INT NOT NULL,
     uneko_stocka INT DEFAULT 0,
     gutxieneko_stocka INT DEFAULT 10,
     FOREIGN KEY (bez_id) REFERENCES bez_motak(bez_id)
 );
 
--- Inbentario Mugimenduak (Biltegitik tabernako txosna/barra ezberdinetara)
 CREATE TABLE stock_mugimenduak (
     mugimendua_id INT AUTO_INCREMENT PRIMARY KEY,
     produktua_id INT NOT NULL,
     mota ENUM('Hornitzaile_Sarrera', 'Barra_Banaketa', 'Hondatzea_Haustura', 'Doitzea') NOT NULL,
     kantitatea INT NOT NULL,
-    jatorri_kokapena VARCHAR(50), -- Adib. 'Biltegi_Nagusia'
-    helburu_kokapena VARCHAR(50), -- Adib. 'Barra_1'
+    jatorri_kokapena VARCHAR(50),
+    helburu_kokapena VARCHAR(50),
     data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (produktua_id) REFERENCES produktuak(produktua_id)
 );
 ```
 
-#### C. Salmentak eta TPV (Salmentak)
-
-TPV bidez egindako transakzio guztiak, ordainketa motak eta BEZaren banaketa gordetzen ditu.
-
+#### C. Salmentak eta TPV
 ```sql
--- TPV Puntuak / Barrak
 CREATE TABLE tpv_terminalak (
     tpv_id INT AUTO_INCREMENT PRIMARY KEY,
-    barra_izena VARCHAR(50) NOT NULL, -- Adib. 'Barra Nagusia', 'VIP Barra'
+    barra_izena VARCHAR(50) NOT NULL,
     kokapena VARCHAR(50)
 );
 
 CREATE TABLE salmentak (
     salmenta_id INT AUTO_INCREMENT PRIMARY KEY,
     tpv_id INT NOT NULL,
-    bazkide_id INT NULL, -- Aukerakoa, eroslea bazkidea bada
+    bazkide_id INT NULL,
     salmenta_data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    oinarri_zergapea DECIMAL(10,2) NOT NULL, -- BEZ gabe
+    oinarri_zergapea DECIMAL(10,2) NOT NULL,
     bez_totala DECIMAL(10,2) NOT NULL,
     prezio_totala DECIMAL(10,2) NOT NULL,
     ordainketa_mota ENUM('Eskudirutan', 'Txartela', 'Bizum', 'Mistoa') NOT NULL,
@@ -185,7 +476,6 @@ CREATE TABLE salmentak (
     FOREIGN KEY (bazkide_id) REFERENCES bazkideak(bazkide_id)
 );
 
--- Salmenten Xehetasunak (Produktuz produktu)
 CREATE TABLE salmenta_enptizioak (
     enptizio_id INT AUTO_INCREMENT PRIMARY KEY,
     salmenta_id INT NOT NULL,
@@ -199,12 +489,8 @@ CREATE TABLE salmenta_enptizioak (
 );
 ```
 
-#### D. Sarrerak eta VIP Erreserbak (Sarrerak / Erreserbak)
-
-Ekitaldi bakoitzeko sarreren salmenta eta VIP guneen erreserbak kudeatzen ditu.
-
+#### D. Sarrerak eta VIP Erreserbak
 ```sql
--- Ekitaldiak / Saioak
 CREATE TABLE ekitaldiak (
     ekitaldi_id INT AUTO_INCREMENT PRIMARY KEY,
     izena VARCHAR(100) NOT NULL,
@@ -212,14 +498,13 @@ CREATE TABLE ekitaldiak (
     edukiera_maximoa INT NOT NULL
 );
 
--- VIP Erreserbak
 CREATE TABLE vip_erreserbak (
     erreserba_id INT AUTO_INCREMENT PRIMARY KEY,
     ekitaldi_id INT NOT NULL,
     bazkide_id INT NULL,
     bezero_izena VARCHAR(100) NOT NULL,
     kontaktuko_telefonoa VARCHAR(20) NOT NULL,
-    vip_eremua VARCHAR(20) NOT NULL, -- Adib. 'Mahai_04'
+    vip_eremua VARCHAR(20) NOT NULL,
     baimendutako_pertsonak INT NOT NULL,
     gutxieneko_kontsumoa DECIMAL(10,2) DEFAULT 0.00,
     erreserba_prezioa DECIMAL(10,2) NOT NULL,
@@ -228,12 +513,11 @@ CREATE TABLE vip_erreserbak (
     FOREIGN KEY (bazkide_id) REFERENCES bazkideak(bazkide_id)
 );
 
--- Igorritako Sarrerak
 CREATE TABLE sarrerak (
     sarrera_id INT AUTO_INCREMENT PRIMARY KEY,
     ekitaldi_id INT NOT NULL,
-    salmenta_id INT NOT NULL, -- Salmenta-ordainketarekin lotura
-    erreserba_id INT NULL,   -- VIP erreserba bati badagokio
+    salmenta_id INT NOT NULL,
+    erreserba_id INT NULL,
     qr_kodea VARCHAR(255) UNIQUE NOT NULL,
     sarrera_mota ENUM('Arrunta', 'VIP', 'Aurretiarra', 'Zerrenda') NOT NULL,
     kontsumizioa_barne BOOLEAN DEFAULT TRUE,
@@ -247,56 +531,28 @@ CREATE TABLE sarrerak (
 
 ### Diseinuaren Punturik Garrantzitsuenak
 
-- **BEZ eta Zerga Kontrola** (`bez_motak` / `salmentak`): Salmenta bakoitzean `oinarri_zergapea`, `bez_totala` eta `prezio_totala` bereizten dira kontabilitate garbia izateko. `salmenta_enptizioak` taulan erosketaren unean aplikatutako BEZ ehunekoa gordetzen da, etorkizunean zerga-tasak aldatuko balira ere historikoak zuzen jarrai dezan.
-- **Stockaren Mugimenduak** (`stock_mugimenduak`): Biltegi nagusitik zein barramendutara aldatzen den alkohola zehatz mehatz trazatzea ahalbidetzen du, galerak edo hausturak kontrolatuz.
-- **VIP Erreserbak eta Sarrerak** (`sarrerak` / `vip_erreserbak`): `qr_kodea` erabiliz sarrerak atean eskaneatzeko prest uzten du eta VIP mahaien kudeaketa bazkideak taulari lotuta egotea bermatzen du.
+- **BEZ eta Zerga Kontrola** (`bez_motak` / `salmentak`): Salmenta bakoitzean `oinarri_zergapea`, `bez_totala` eta `prezio_totala` bereizten dira kontabilitate garbia izateko.
+- **Stockaren Mugimenduak** (`stock_mugimenduak`): Biltegi nagusitik tabernako barra desberdinetara pasatzen den stocka uneoro trazatzen du.
+- **VIP Erreserbak eta Sarrerak** (`sarrerak` / `vip_erreserbak`): `qr_kodea` erabiliz sarbide azkarra eta VIP mahaien esleipen automatikoa bermatzen du.
 
 ### Erabiltzaile eta portuen justifikazioa - zergatik?
 
-Datu-basearen segurtasuna eta kudeaketa egokia bermatzeko, zerbitzua atzitzeko portu zehatzak eta baimen desberdintasunak dituzten erabiltzaileak definituko dira. Alde batetik, datu-basearen zerbitzariak **3306 portu estandarra** erabiliko du (MySQL/MariaDB) barne-sareko komunikaziorako, eta aplikazio-zerbitzariarekin edo TPV terminalekin konexio segurua izateko 443 portua (HTTPS) gaituko da API bidezko atzipenetarako.
+Datu-basearen segurtasuna eta kudeaketa egokia bermatzeko, zerbitzua atzitzeko portu zehatzak eta baimen desberdintasunak dituzten erabiltzaileak definituko dira.
+- **3306 portua (MySQL/MariaDB):** Barne-sareko komunikazio fidagarrirako soilik.
+- **443 portua (HTTPS):** Aplikazio-zerbitzariarekin edo TPV terminalekin REST API segurua ezartzeko.
 
-Bestetik, erabiltzaile-rol desberdinak sortuko dira gutxieneko pribilegioen printzipioari jarraituz:
-
-- `admin_diskoteka`: zerbitzuaren kudeatzaile nagusia, egitura aldatzeko eta segurtasun-copiak egiteko baimen osoekin.
-- `tpv_langilea`: barrako terminaletan salmentak erregistratzeko eta stocka kontsultatzeko DML baimen mugatuekin.
-- `atezaina_sarrerak`: atean QR kodeak egiaztatzeko eta sarrera-egoera eguneratzeko baimen soilarekin.
-- `kudeatzailea_logistika`: biltegiko mugimenduak, alkohola eta inbentarioa kudeatzeko baimen espezifikoekin.
+Erabiltzaile-rolak:
+- `admin_diskoteka`: Zerbitzuaren kudeatzaile nagusia, baimen osoekin (DDL/DML eta backupak).
+- `tpv_langilea`: Terminaletako salmentak erregistratzeko baimen mugatuekin.
+- `atezaina_sarrerak`: Sarreretako QRak egiaztatzeko eta egoera eguneratzeko baimen soilarekin.
+- `kudeatzailea_logistika`: Biltegiak, stock-mugimenduak eta hornitzaileak kudeatzeko baimenekin.
 
 ### MongoDB Instalazioa eta Konfigurazioa: EKLIPSE Proiektua
 
-Dokumentu honetan EKLIPSE proiekturako MongoDB datu-basearen instalazio, konfigurazio eta datu-sarrera prozesu osoa azaldu eta dokumentatzen da.
-
-**1. MongoDB Server eta MongoDB Compass Instalazioa**
-
-Datuak tokian bertan (local) gordetzeko eta kudeatzeko, software hauek deskargatu eta instalatu dira:
-
-- MongoDB Community Server (v9.0.2): Datu-basearen zerbitzari nagusia. Windows-erako .msi instalatzaile ofizialaren bidez deskargatu da.
-- MongoDB Compass: Datu-basea modu bisual batean kudeatzeko interfaze grafikoa (GUI).
-
-Instalazio urratsak Windows-en:
-
-1. MongoDB Community Server instalatzailea (.msi) exekutatu da.
-2. Konfigurazioan "Install MongoDB as a Service" eta "Run service as Network Service user" aukerak hautatuta utzi dira zerbitzaria atzealdean automatikoki abiarazteko.
-3. Aukerazko MongoDB Compass tresna instalatzea onartu da.
-
-**2. Zerbitzarira Konekzioa**
-
-Instalazioa amaitutakoan, MongoDB Compass tresna ireki eta tokiko zerbitzarira konektatu da hurrengo URI konexio-katea erabiliz:
-
-```
-mongodb://localhost:27017
-```
-
-**3. Datu-basea eta Bilduma (Collection) Sortzea**
-
-Proiektuko sentsoreen datuak egituratzeko, datu-base bat eta bilduma bat sortu dira:
-
-- **Datu-basea (Database):** `eklipse_sentsoreak` — EKLIPSE proiektuko sentsore guztien informazioa biltzeko datu-base nagusia.
-- **Bilduma (Collection):** `sentsoreak` — Sentsore ezberdinen neurketak gorde eta egituratzen dituen bilduma.
-
-**4. Sentsoreen Datuak Txertatzea (JSON)**
-
-Proiektuak hiru sentsore nagusi ditu: Tenperatura, Dezibelioak eta Alkoholimetro Sentsorea. Datuak modu egokian gordetzeko, egituratutako JSON dokumentuak txertatu dira `sentsoreak` bilduman:
+Datuak tokian bertan gordetzeko:
+- **MongoDB Community Server (v9.0.2):** Windows zerbitzari gisa konfiguratuta (`mongodb://localhost:27017`).
+- **MongoDB Compass:** Datuen ikuskapen grafikorako.
+- **Datu-basea:** `eklipse_sentsoreak` | **Bilduma:** `sentsoreak`
 
 ```json
 [
@@ -306,11 +562,7 @@ Proiektuak hiru sentsore nagusi ditu: Tenperatura, Dezibelioak eta Alkoholimetro
 ]
 ```
 
-**5. Azken Emaitza eta Egiaztapena**
-
-Datuak ondo txertatu ondoren, MongoDB Compass-eko bildumaren panelean hiru dokumentuak agertzen dira beren eremu eta balio guztiekin, proiekturako erabilgarri eta prest.
-
-![MongoDB Compass - eklipse_sentsoreak bilduma](datu-baseak-mongodb-compass.png)
+![MongoDB Compass - eklipse_sentsoreak bilduma](assets/datu-baseak-mongodb-compass.png)
 
 ---
 
@@ -318,100 +570,184 @@ Datuak ondo txertatu ondoren, MongoDB Compass-eko bildumaren panelean hiru dokum
 
 ### Informazio publikoaren bilakaera
 
-Windows serverraren komprobapen orokor bat egin da, IP mapa bat sortzeko. IPak lortu dira, baina windows normala ezin izan da aurkitu.
+Windows Serverraren egiaztapen orokor bat egin da IP mapa bat osatzeko.
 
 ### Zerbitzu edo aplikazio aktiboen eskaneoa
 
-Ikusi izan dugu zein zerbitzu dauden aktibo momentuan, eta hauek non dauden ipinita. Honen ezker ere ikusa da kali linux esaten "segurunez windows 2019 erabiltzen hari da".
+Kali Linux bidez egindako Nmap eskaneoan ikusi dugu zerbitzu aktiboak zabalik daudela eta OS detekzioak Windows Server 2019 adierazten duela.
 
-![Nmap zerbitzu-eskaneoa eta OS detekzioa](ziber-nmap-servicios.png)
+![Nmap zerbitzu-eskaneoa eta OS detekzioa](assets/ziber-nmap-servicios.png)
 
 ### Ahultasun edo hedapen bilaketa
 
-Windows Serverrean egin da saiakera eta ikusi da tcp irekiak eta ahultasunak. Pasahitza ezin izan da lortu, hydra motelegia delako.
+TCP portu irekiak eta ahultasunak aztertu dira. Hydra bidez saiatu arren, brute-force erasoa geldotuta geratu da sarbide-politika zorrotzengatik.
 
-![Nmap vuln script - ahultasun bilaketa](ziber-nmap-vuln.png)
+![Nmap vuln script - ahultasun bilaketa](assets/ziber-nmap-vuln.png)
 
-![Hydra bidezko brute-force saiakera](ziber-hydra-bruteforce.png)
+![Hydra bidezko brute-force saiakera](assets/ziber-hydra-bruteforce.png)
 
 ### Ahultasun ustiaketa
 
-Ezin izan da zerbitzuetan sartu, loginaren faltagatik, bakarrik admin usuarioa asmatu. Hala ere, behar den denbora duen batematek edo sistema azkarrago bat lortu eta erabiltzen duen norbaitek sartzeko aukera izango zuen windows serverrean, eta hori problema handia izan dezake.
-
-Ahultasunak aurkitu dira logina margin asko utzi duelako, netmapa oso irekia eta aztertzeko erraza delako eta ip-ak argira daude. Arazo hauek ez izateko, login sahiakera limite bat ipini beharko da, eta firewall-a edo routerra configuratu netmap eta ip-ak bistan ez izateko.
+> [!WARNING]
+> Zerbitzuetan ez sartzeko eta arriskuak minimizatzeko: login saiakera mugak ezarriko dira, sare-mapa publikotik ezkutatuko da eta pfSense bidezko isolamendua ezarriko da.
 
 ### Segurtasuna
 
 #### 1. Agertoki bakoitzeko erantzun-plan zehatzak
 
-| **Agertokia** | **Arrazoia / Abiarazlea** | **1. Urratsa: Berehalako erreakzioa (0–15 s)** | **2. Urratsa: Kontrola eta arintzea (1–5 min)** | **3. Urratsa: Berrabiaraztea eta normalizazioa** | **Arduradun zuzena** |
-| --- | --- | --- | --- | --- | --- |
-| **A. Konektibitate edo sare-akatsa** | Latentzia > 2.000 ms, pakete-galera > % 15 edo zuntz optiko nagusiaren erorketa. | Tokiko bukle grafiko erreaktibora aldatze automatikoa. DJak musikaren erritmoa igotzen du. | Sarearen komutazioa ordezko 5G bideratzailera (routerra). Bigarren mailako ISParekin diagnostikoa egitea. | Seinalea berriro konektatzea latentzia < 100 ms denean eta transferentzia-tasa egonkorra denean. | AV Teknikaria / VJ |
-| **B. Eduki zakarra edo legez kanpokoa** | Biluztasuna, istiluak, legez kanpoko kontsumoa edo kamera aurrean portaera ezinokorrak. | "Larridura-botoia" sakatzea. 5 s-ko atzerapen-bufferrak eszena beste hirira iristea eragozten du. | Kortina grafikoa proiektatzea ("Seinalea doitzen..."). Segurtasun-pertsonala eremura bidaltzea. | Inplikatutakoak kanporatzea/ohartaraztea. Emisioa berriro aktibatzea segurtasunak egiaztatu ondoren. | VJ Operadorea / Segurtasuna |
-| **C. Ikus-entzunezko hardware-akatsa** | LED pantaila/proiektorea itzaltzea, AV eskalatzailea izoztea edo tokiko kameraren akatsa. | Bideo-irteera tokiko ohiko argiteria-sistemara bideratzea, pantaila nagusirik gabe. | Ordezko ekipoa jartzea edo LED prozesadorea berrabiarazi. | Seinale grafikoa berriro lerrokatzea eta hardwarearen tenperatura/elikadura egiaztatzea. | Guardiako AV Teknikaria |
-| **D. Urruneko eboluzioa edo larrialdia** | Interkomunikadoretik abisua edo urruneko pantailan izua/alarmak/sutea ikustea. | Pantailan berehala beltzera igarotzea eta urruneko audio-sarrera guztiz moztea. | Tokiko saioarekin jarraitzea argiteria eta DJ propioarekin, ikusleak kanpoko alarmatik bakartuz. | Urruneko egoitzako zuzendaritzarekin balorazioa egitea saioa berriz aktibatu edo gau horretan bertan behera uztea erabakitzeko. | Eragiketen Zuzendaria / DJ |
-| **E. Zibererasoa edo seinalearen hackeoa** | Kanpoko seinalea txertatzea, ikusmen-manipulazioa, ransomware edo DDoS erasoa. | Sareko kablea fisikoki deskonektatu eta tokiko konexiorik gabeko (offline) seinalera pasatzea. | Emisio-kredentzialak/gakoak (SRT/RTMP) berehala aldatzea eta VLAN seguru batean bakartzea. | Bi faktoreko autentifikazioa (2FA) duen ordezko zerbitzari enkriptatura migratzea. | IT Teknikaria / VJ Operadorea |
+| Agertokia | Arrazoia / Abiarazlea | 1. Urratsa: Berehalako erreakzioa (0–15 s) | 2. Urratsa: Kontrola eta arintzea (1–5 min) | 3. Urratsa: Berrabiaraztea eta normalizazioa | Arduradun zuzena |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **A. Konektibitate edo sare-akatsa** | Latentzia > 2.000 ms, pakete-galera > % 15 edo zuntz optikoaren erorketa. | Tokiko bukle grafiko erreaktibora aldatze automatikoa. DJak musikaren erritmoa igotzen du. | Sarearen komutazioa ordezko 5G bideratzailera (routerra). Bigarren mailako ISParekin diagnostikoa. | Seinalea berriro konektatzea latentzia < 100 ms denean eta tasa egonkorra denean. | AV Teknikaria / VJ |
+| **B. Eduki zakarra edo legez kanpokoa** | Biluztasuna, istiluak, legez kanpoko kontsumoa kameraren aurrean. | "Larridura-botoia" sakatzea. 5 s-ko atzerapen-bufferrak beste hirira iristea eragozten du. | Kortina grafikoa proiektatzea ("Seinalea doitzen..."). Segurtasuna bertaratu. | Inplikatutakoak kanporatu. Emisioa berriro aktibatu egiaztatu ondoren. | VJ Operadorea / Segurtasuna |
+| **C. Ikus-entzunezko hardware-akatsa** | LED pantaila/proiektorea itzaltzea edo AV eskalatzailea izoztea. | Bideo-irteera tokiko ohiko argiteria-sistemara bideratzea. | Ordezko ekipoa jartzea edo LED prozesadorea berrabiarazi. | Seinale grafikoa berriro lerrokatu eta tenperaturak egiaztatu. | Guardiako AV Teknikaria |
+| **D. Urruneko eboluzioa edo larrialdia** | Urruneko pantailan izua/alarmak/sutea ikustea edo abisua jasotzea. | Pantailan berehala beltzera igaro eta kanpoko audioa guztiz moztu. | Tokiko saioarekin jarraitu argiteria eta DJ propioarekin lokala bakartuz. | Zuzendaritzarekin balorazioa egin saioa berriz aktibatu edo bertan behera uzteko. | Eragiketen Zuzendaria / DJ |
+| **E. Zibererasoa edo seinalearen hackeoa** | Kanpoko seinalea txertatzea, ransomwarea edo DDoS erasoa. | Sareko kablea fisikoki deskonektatu eta offline seinalera pasatu. | SRT/RTMP kredentzialak aldatu eta VLAN seguru batean bakartu. | 2FA duen ordezko zerbitzari enkriptatura migratu. | IT Teknikaria / VJ Operadorea |
 
 #### 2. Agertoki bakoitzari lotutako beharrezko baliabideen matrizea
 
-| **Baliabidea / Tresna** | **Mota** | **Zein agertokitan aplikatzen den** | **Funtzio espezifikoa agertokiaren arabera** |
-| --- | --- | --- | --- |
-| **Failover 5G duen Dual-WAN bideratzailea** | Sarea | A agertokia, E agertokia | A-n, trafikoa 5G sarera igortzen du zuntzak huts egin ondoren. E-n, garbi bakartutako sare batetik irten ahal izatea ahalbidetzen du. |
-| **Atzerapen-buffer prozesadorea + Larridura-botoia** | AV Hardwarea | B agertokia, E agertokia | B-n, egokiak ez diren irudiak blokeatzen ditu 5 s-ko marjinarekin. E-n, konprometitutako seinalea eskuz mozten du. |
-| **Ordezko AV Ekipoak (Kamera / Kodetzailea)** | AV Hardwarea | C agertokia | Osagai elektroniko nagusiek huts eginez gero, ordezkatze azkarra. |
-| **Lineaz kanpoko edukien zerbitzaria (B Plana)** | Softwarea / PCa | A, B, C, D, E agertokiak | Ikusmen-bukleak eta animazioak sortzen ditu SSD unitatean, kanpoko konexiorik edo urruneko hardwarerik behar izan gabe. |
-| **Firewall industriala VPN / SRT enkriptatzearekin** | Zibersegurtasuna | E agertokia | Baimenik gabeko sarbideak eta DDoS erasoak blokeatzen ditu, eta hiri arteko bideo-tunela enkriptatzen du (AES-128). |
-| **IP Dedikatuko Interkomunikadorea / Comlink** | Komunikazioak | D agertokia, E agertokia | Zuzendarien arteko ahots-kanal pribatu eta etenik gabea mantentzen du gertakari larriak edo hackeoak egiaztatzeko. |
-| **SAI / UPS Sistema (3 kVA)** | Energia | A, B, C, D, E agertokiak | AV/IT rack-a babesten du mikromozketen edo tentsio-jaitsieren aurrean, hardwarea kaltetzea saihestuz. |
-| **Kabinako AV / VJ Operadorea** | Pertsonala | A, B, C, D, E agertokiak | Komutazioak burutzen ditu, larridura-botoia sakatzen du eta berehalako ikusmen-erantzuna kudeatzen du. |
-| **Kamera eremuko Segurtasun-agentea** | Pertsonala | B agertokia | Kameraren eremuan ikusleen portaera moderatzen du eta istiluen aurrean esku hartzen du. |
-| **Guardiako IT Espezialista / Laguntza** | Pertsonala | A agertokia, C agertokia, E agertokia | Sare-arazoak ebazten ditu A-n, elektronika-akatsak C-n eta informazio-sartzeak E-n. |
+| Baliabidea / Tresna | Mota | Zein agertokitan aplikatzen den | Funtzio espezifikoa |
+| :--- | :--- | :--- | :--- |
+| **Failover 5G duen Dual-WAN bideratzailea** | Sarea | A agertokia, E agertokia | Trafikoa 5G sarera igortzen du zuntzak huts eginez gero. |
+| **Atzerapen-buffer prozesadorea + Larridura-botoia** | AV Hardwarea | B agertokia, E agertokia | Irudi desegokiak blokeatzen ditu 5 s-ko atzerapenarekin. |
+| **Ordezko AV Ekipoak (Kamera / Kodetzailea)** | AV Hardwarea | C agertokia | Osagai elektroniko nagusiek huts eginez gero ordezkatze azkarra. |
+| **Lineaz kanpoko edukien zerbitzaria (B Plana)** | Softwarea / PCa | A, B, C, D, E agertokiak | Bideo-bukleak lokalki sortzen ditu konexiorik gabe. |
+| **Firewall industriala VPN / SRT enkriptatzearekin** | Zibersegurtasuna | E agertokia | Sarbide ez-baimenduak eta DDoS erasoak blokeatzen ditu. |
+| **IP Dedikatuko Interkomunikadorea / Comlink** | Komunikazioak | D agertokia, E agertokia | Zuzendarien arteko ahots-kanal segurua mantentzen du. |
+| **SAI / UPS Sistema (3 kVA)** | Energia | A, B, C, D, E agertokiak | AV/IT rack-a babesten du tentsio-jaitsieren aurrean. |
+| **Kabinako AV / VJ Operadorea** | Pertsonala | A, B, C, D, E agertokiak | Komutazioak burutu eta berehalako erantzuna kudeatzen du. |
+| **Kamera eremuko Segurtasun-agentea** | Pertsonala | B agertokia | Ikusleen portaera moderatu eta istiluak prebenitzen ditu. |
+| **Guardiako IT Espezialista** | Pertsonala | A agertokia, C agertokia, E agertokia | Sare-arazoak, elektronika-akatsak eta intrusioak ebazten ditu. |
 
 #### 3. Kontingentzia-aurrekontuaren estimazio osoa
 
-| **Kontzeptua** | **Kategoria** | **Deskribapen teknikoa** | **Estimatutako kostua (€)** |
-| --- | --- | --- | --- |
+| Kontzeptua | Kategoria | Deskribapen teknikoa | Estimatutako kostua (€) |
+| :--- | :--- | :--- | :--- |
 | **Dual-WAN bideratzailea + 5G Modulu Industriala** | CAPEX (Inbertsioa) | Trafikoaren konmutazio automatikoa < 1 s-tan egiten duen sare-sistema. | 1.200 - 1.800 € |
-| **Atzerapen-buffer prozesadorea + Etengailua** | CAPEX (Inbertsioa) | HD/4K seinalearen atzerapenerako eta mozketa fisikorako botoia duen hardwarea. | 1.500 - 2.500 € |
-| **Ordezko AV Hardwarea (Kamera + Kodetzailea)** | CAPEX (Inbertsioa) | Bigarren mailako HD kamera eta ordezkatze azkarrerako prest dagoen komutatzaile/kodetzailea. | 800 - 1.500 € |
+| **Atzerapen-buffer prozesadorea + Etengailua** | CAPEX (Inbertsioa) | HD/4K seinalearen atzerapenerako botoi fisikoa duen hardwarea. | 1.500 - 2.500 € |
+| **Ordezko AV Hardwarea (Kamera + Kodetzailea)** | CAPEX (Inbertsioa) | Bigarren mailako HD kamera eta ordezkatze azkarrerako komutatzailea. | 800 - 1.500 € |
 | **Zibersegurtasun Firewall-a + VPN/SRT Lizentzia** | CAPEX (Inbertsioa) | Zibererasoen aurkako babesa, IP iragazketa eta puntuz puntuko enkriptatzea. | 1.000 - 2.000 € |
-| **3 kVA-ko SAI/UPS Sistema AV/IT Rack-erako** | CAPEX (Inbertsioa) | Saretarako, prozesamendurako eta bideorako elektronikarako energia-babesa. | 800 - 1.200 € |
-| **Redundante den linea + SIM 5G M2M** | OPEX (Hilero) | IP finkodun ISP sekundario independentea + datu mugikor nemagabeak. | 180 - 300 € / hilabete |
+| **3 kVA-ko SAI/UPS Sistema AV/IT Rack-erako** | CAPEX (Inbertsioa) | Saretarako, prozesamendurako eta bideorako energia-babesa. | 800 - 1.200 € |
+| **Redundante den linea + SIM 5G M2M** | OPEX (Hilero) | IP finkodun ISP sekundario independentea + datu mugikor mugagabeak. | 180 - 300 € / hilabete |
 | **AV/IT Guardiako teknikari espezializatua** | OPEX (Hilero) | Sare, hardware eta zibersegurtasun laguntzarako urruneko/aurrez aurreko estaldura. | 200 - 400 € / hilabete |
 
 ### Pasahitzen politika
 
-Pasahitz guztiak izan beharko dute gutxienez 12 karakter, letra handi eta txiki bat, zenbaki bat eta bestelako seinu bat, eta ez dira bi pasahitz berdin egongo empresa barruan segurtasuna sihurtatzeko. Horrela ba, pentsatutako pasahitzak honako hauek dira:
-
-- `M00nD4nc3r1_` (Donostiko bezerorako Admin)
-- `M00nD4nc3r2#` (Bilboko bezerorako Admin)
-- `5unW4tch3r0_` (Kali Linuxerako)
-- `V13wM4n4g3r#` (Windows Server)
-- `S4f3lyL00k5_` (Linux Server)
-
-  
+Pasahitz guztiek gutxienez 12 karaktere, letra handi/txikiak, zenbakiak eta ikur bereziak dituzte:
+- `M00nD4nc3r1_` *(Donostiako bezero Admin)*
+- `M00nD4nc3r2#` *(Bilboko bezero Admin)*
+- `5unW4tch3r0_` *(Kali Linux)*
+- `V13wM4n4g3r#` *(Windows Server)*
+- `S4f3lyL00k5_` *(Linux Server)*
 
 ### Sarbide fisikoen eta ingurumenaren politika
 
-Ingurumen problemak kontuan artzeko, serbidoreak eta ordenagailuak gela txukun eta aparteko batean ipiniko dira, eta beraientzat behar diren aire girotuak ipiniko dira hauek tenperatura egokian mantentzeko. Serbidore hauek goiko solairu batean izango dira, eta inoiz direktoki lurrean, urarengatik eta uholdetik babesteko.
+- **Ingurumen-baldintzak:** Zerbitzariak gela klimatizatu independente batean kokatuko dira, beti **goiko solairuan eta lurretik altxatuta**, uholde eta hezetasun arriskuak deuseztatzeko.
+- **Sarbide fisikoa:** Gela teknikora sartzeko sarbide-teklatua eremu diskretuan jarriko da (argi zuzenik gabe), eta langile bakoitzak kredentzial indibidualak izango ditu sarbide-erregistro automatikoarekin.
 
-Sarbide fisikoak mendean izateko, serbidore edo lan-lekura sartzeko pasahitz bat ipiniko beharko da ikusteko erraza ez den leku batean, hau da, eskailerak igo besain laster edo argi asko eltzen ez den leku bat, horrela pasahitza ez da ikusiko edonorgatik. Gainera, langile bakoitzak bere sarbidea izango du, bere pasahitzarekin. Langileak beren pasahitza aukeratuko dute, baina beti pasahitz politika jarraituz.
+---
 
-### IDS planteamendua
+### pfSense Proxmox-en: instalazio-gida laburra
 
-NIDS bat erabiltzea da daukagun aukera bakarra, bi diskoteka konektatuta izan nahi badugu sarera, problemak sarean izango ditugu (DDoS edo Man In the middle), eta ez ordenagailu edo sistema barruan (HIDS erabili behar genuen kasua). NIDSa portu ispilu batean ipini beharko zen Switch-aren barruan, eta anomalia eta firma bidez blockeatzeko ipini behar da. Gure kasuarentzat, Suricata erabiltzea hobeena dela erabaki da.
+pfSense 2.6.0 Proxmox VE-ren barruko makina birtual batean dabil, eta hiru sare-segmentu bereizten ditu: **WAN**, **LAN** eta **OPT1 (DMZ)**.
 
-### LAN edo WAN, DMZ eta VPN
+#### Sistemaren datuak
+| Atala | Balioa |
+| :--- | :--- |
+| **Bertsioa** | pfSense 2.6.0 (amd64), FreeBSD 12.3 oinarrian |
+| **Plataforma** | KVM guest, SeaBIOS, QEMU CPU |
+| **Izena (Hostname)** | `pfSense.home.arpa` |
+| **Laguntza** | Community Support |
 
-Gure zerbitzuarentzat, behar da WAN sarea erabiltzea, LAN ez duelako beste hiri batera elduko inoiz. DMZa kanpo internetaren eta barruko sareen artean ipinko zen, routerra heldu baino lehen, non VPN ezarriko zen internetera heldu baino lehen, IPak beti seguru izateko.
+#### Interfazeak
+| Interfazea | Txartela | IP helbidea | Mota |
+| :--- | :--- | :--- | :--- |
+| **WAN** | `vtnet0` | `192.168.71.218/24` | DHCP |
+| **LAN** | `vtnet1` | `192.168.0.254/24` | Estatikoa |
+| **OPT1 (DMZ)** | `vtnet2` | `192.168.2.254/24` | Estatikoa |
 
-### Firewall
+#### Virtualizazioa Proxmox-en
+pfSense Proxmox VE-ren barruko makina birtual gisa dabil. Birtualizazioari esker ekipo fisiko berririk ez da behar, sare birtualak segundotan sortzen dira eta snapshot eta babeskopiak egin daitezke aldaketa arriskutsuen aurretik.
 
-Firewall bezala, pfsense erabiltzen ari gara, eta honei ipinitako reglak dira:
+| Ezaugarria | Balioa |
+| :--- | :--- |
+| **Proxmox ostalaria (IPa)** | `192.168.71.160` |
+| **VM-aren izena eta ID-a** | `VM 100 - pfSense-Eklipse` |
+| **CPU, RAM eta diskoa** | 2 vCPU kores, 2048 MB RAM, 16 GB VirtIO Disk |
+| **Sare-txartelak (VirtIO)** | `net0` → WAN (`vtnet0`), `net1` → LAN (`vtnet1`), `net2` → OPT1 (`vtnet2`) |
+| **Proxmox-eko zubiak** | `vmbr1` eta `vmbr2` Linux bridgeak |
 
-- **WAN:** VPNa baimendu bere portuan diskotekak kanpora joan dezatela.
-- **WireGuard:** streaming-a baimentzea eta bestelakoa blokeatzea, edonor ez sartzeko.
-- **DMZ:** Streaming-ari sarbidea baimendu eta LANa blokeatu, hackerrak DMZtik sartzen badira ez heltzeko edonora.
+#### Instalazio-urratsak
+1. Proxmox-en pfSense 2.6.0-ren ISO-a igo (`local` → *ISO Images*).
+2. VM bat sortu: SeaBIOS, QEMU CPU eta VirtIO motako hiru sare-txartel, bakoitza bere zubian.
+3. VM-a abiarazi, instalatzailea jarraitu eta amaitzean ISO-a kendu.
+4. Kontsolan:
+   - `1) Assign Interfaces`: `vtnet0` WAN, `vtnet1` LAN eta `vtnet2` OPT1.
+   - `2) Set interface(s) IP address`: WAN DHCP bidez; LAN eta OPT1 IP finkoekin.
+5. LAN-eko ordenagailu batetik `https://192.168.0.254` ireki, admin gisa sartu, pasahitza aldatu eta wizard-a bete.
+6. **Status → Dashboard** aztertu: bertsioa, plataforma eta interfazeak zuzen daudela egiaztatu.
+7. Konfigurazio egokiarekin, Proxmox-en **snapshot bat egin** (itzulera-puntua).
+
+#### Suebakiaren aukeraketa eta kokapena
+
+| Aukera | Alde onak | Alde txarrak |
+| :--- | :--- | :--- |
+| **pfSense (Aukeratua)** | Doakoa, web interfaze grafikoa, stateful suebakia, NAT, VPN eta IDS pakete sendoak | FreeBSD-ren ezagutza pixka bat behar da arazoak konpontzeko |
+| **OPNsense** | Antzekoa eta interfaze modernoagoa | Ez du abantaila nabarmenik pfSense-rekin alderatuta erronka honetarako |
+| **iptables / ufw** | Oso arina, ez du VM berezirik behar | Komando-lerroa soilik, arauen kudeaketa eta VPN/IDS zailagoak |
+
+> [!NOTE]
+> **Kokapena:** VM-a WAN eta barne-sareen artean kokatuta dago, hiru interfazerekin. Horrela barne eta DMZ sareetako trafiko guztia suebakitik pasatzen da, eta ez dago saihesbiderik.
+
+#### Sarearen diseinua
+
+```
+Internet / Router ─── WAN vtnet0 (192.168.71.218) ─── [ pfSense ] ─── LAN vtnet1 (192.168.0.254) ─── Barne Sarea
+                                                            │
+                                                            └─── OPT1/DMZ vtnet2 (192.168.2.254) ─── Zerbitzariak
+```
+
+| Zona | Sarea | pfSense IPa | Zerbitzuak | Zergatik |
+| :--- | :--- | :--- | :--- | :--- |
+| **WAN** | `192.168.71.0/24` | `192.168.71.218` (DHCP) | Irteera Internetera | Kanpoko sarearekiko muga |
+| **LAN** | `192.168.0.0/24` | `192.168.0.254` | Erabiltzaileak, TPVak eta pfSense-ren administrazioa | Sare fidagarria, DMZ-tik isolatuta |
+| **DMZ (OPT1)** | `192.168.2.0/24` | `192.168.2.254` | Streaming, Webgunea eta bideo-zerbitzariak | Kanpotik eskuragarri egongo diren zerbitzuak LAN-etik bereizteko |
+
+*Oharra: OPT1 interfazeari DMZ izena jarri zaio (Interfaces → OPT1 → Description).*
+
+#### Suebaki-arauak
+
+PfSense-k lehenespenez WAN-ean sarrera guztia blokeatzen du, LAN-ean dena baimentzen du, eta OPT1-en ez du ezer baimentzen arau bat gehitu arte:
+
+| Interfazea | Ekintza | Jatorria → Helmuga | Portua | Zergatik |
+| :--- | :--- | :--- | :--- | :--- |
+| **WAN** | Blokeatu | edozein → WAN | guztiak | Kanpotik baimendu gabeko sarrerarik ez (lehenetsia) |
+| **WAN** | Baimendu (NAT) | edozein → DMZ zerbitzaria | 80, 443 | Web zerbitzu publikoa eta streaminga |
+| **LAN** | Baimendu | LAN → edozein | guztiak | Barne erabiltzaileek Internetera eta DMZ-ra sartzeko |
+| **LAN** | Baimendu | LAN → pfSense | 443 | WebGUI HTTPS bidez administratzeko |
+| **DMZ** | Blokeatu | DMZ → LAN | guztiak | Erasoa DMZ-n gertatuz gero, barne sarea zorrozki babesteko |
+| **DMZ** | Baimendu | DMZ → WAN | 53, 80, 443 | DNS eta eguneraketak soilik |
+
+*Garrantzitsua: Blokeatzeko araua baimentzekoaren gainetik kokatzen da DMZ-ko arau-zerrendan.*
+
+#### Urruneko sarbidea (VPN)
+
+| Aukera | Alde onak | Alde txarrak |
+| :--- | :--- | :--- |
+| **OpenVPN (Aukeratua)** | Oso zabaldua, bezero-fitxategiak esportatzeko morroia, UDP/TCP | Zertxobait motelagoa CPU mugatuetan |
+| **WireGuard** | Oso azkarra eta konfigurazio sinplea | Pakete gehigarri gisa instalatu behar da |
+| **IPsec** | Estandarra, sare-sare konexioetarako ona | Konfigurazio konplexuagoa |
+
+**OpenVPN Ezarpena:**
+1. `System → Cert. Manager`: CA propioa eta zerbitzariaren ziurtagiria sortu.
+2. `VPN → OpenVPN → Wizards`: Local User Access, UDP 1194 portua, tunel-sarea `10.0.8.0/24` eta tokiko sarea `192.168.0.0/24`.
+3. `System → Package Manager`: `openvpn-client-export` instalatu eta bezero-konfigurazioa esportatu.
+4. Router nagusian UDP 1194 portua pfSense-ren WAN IPra birbideratu da.
+
+#### IDS eta HTTPS
+- **IDS (Suricata):** `System → Package Manager` bidez instalatuta. WAN interfazean ETOpen arauak aktibatu dira Alert Mode moduan.
+  - *Egiaztapen proba:* LAN-eko ekipo batetik `curl http://testmynids.org/uid/index.html` exekutatu eta alerta agertzen dela egiaztatu da.
+- **HTTPS WebGUI:** pfSense-ren kudeaketa HTTPS bidez soilik gaituta dago (`System → Advanced → Admin Access`).
+- **Segurtasun mantentzea:** Diagnostics bidez XML babeskopiak eta Proxmox mailako backup automatikoak programatuta daude.
 
 ---
 
@@ -419,62 +755,44 @@ Firewall bezala, pfsense erabiltzen ari gara, eta honei ipinitako reglak dira:
 
 ### Osagai eta Gailuen Aurrekontu Xehatua
 
-Atal honetan gailu-mota bakoitzaren unitateko prezioa, ezaugarri teknikoak eta zergatia zehazten dira, eskatutako unitate kopuru berrietara egokituta.
-
 #### 1. Harrera eta Lana Egiteko Potentzia Handiko Portatilak (2 Unitate)
 
-| **Osagaia / Gailua** | **Ezaugarri Teknikoak** | **Unitateko Prezioa (BEZ gabe)** |
-| --- | --- | --- |
+| Osagaia / Gailua | Ezaugarri Teknikoak | Unitateko Prezioa (BEZ gabe) |
+| :--- | :--- | :--- |
 | **Portatil Potentea** | Intel Core i7-13700H / AMD Ryzen 7 7735HS, 32 GB DDR5 RAM, 1 TB SSD NVMe PCIe 4.0, NVIDIA RTX 4060 8GB, 15.6" IPS Full HD/QHD pantaila | 1.350,00 € |
-| **Guztira Portatilak (2 Unitate):** |  | **2.700,00 €** |
+| **Guztira Portatilak (2 Unitate):** | | **2.700,00 €** |
 
-**Zergatik hautatzen diren eta nola funtzionatzen duten:**
-
-Portatil hauek harrerako kudeaketa bizkorra eta erreserba-sistema konplexuak atzerapenik gabe exekutatzeko aukera ematen dute. Prozesadore multinukleoak eta 32 GB RAM memoriak aplikazio asko aldi berean irekita izatea bermatzen dute. Txartel grafiko dedikatuak kartelak edo sustapen-bideoak unean bertan editatzeko aukera ematen du. SSD NVMe diskoak sistema operatiboa eta dokumentuak segundotan kargatzen ditu.
-
-![Harrerako portatilak erabiltzen](eklipse-harrera-portatilak.png)
+![Harrerako portatilak erabiltzen](assets/eklipse-harrera-portatilak.png)
 
 #### 2. Pantaila Handiak eta Mini PC Kutsuak/Ezkutatzekoak (2 Unitate)
 
-| **Osagaia / Gailua** | **Ezaugarri Teknikoak** | **Unitateko Prezioa (BEZ gabe)** |
-| --- | --- | --- |
-| **Mini PC Trinkoa** | VESA euskarria duena (pantaila atzean ezkutatzeko), Intel Core i5-13400 / Ryzen 5 5600H, 16 GB DDR4 RAM, 512 GB SSD NVMe, Wi-Fi 6 + Bluetooth, HDMI 2.1 (4K 60Hz) | 480,00 € |
-| **Pantaila Handia** | 65" edo 75" LED/4K UHD Babes-pantaila komertziala (24/7 funtzionamendurako prestatua), HDMI anitzeko sarrerak | 850,00 € |
-| **VESA Euskarria eta Kableak** | Hormarako/pantaila atzerako euskarri artikulatua eta HDMI 2.1 kableak | 60,00 € |
-| **Guztira Mini PC + Pantaila Pack (Unitate 1):** |  | **1.390,00 €** |
-| **Guztira Mini PC + Pantaila Pack (2 Unitate):** |  | **2.780,00 €** |
-
-**Zergatik hautatzen diren eta nola funtzionatzen duten:**
-
-Mini PC-ak ezin hobeto ezkutatzen dira pantailen atzealdean VESA euskarrien bidez, kableak ezkutuan utziz eta estetika garbia mantenduz. HDMI 2.1 bidez 4K rezoluzioko edukia igortzen dute pantaila erraldoietara. Babes-pantaila komertzialak ordu luzez piztuta egoteko eta diskotekako argitasun zein giro-baldintzei aurre egiteko diseinatuta daude.
+| Osagaia / Gailua | Ezaugarri Teknikoak | Unitateko Prezioa (BEZ gabe) |
+| :--- | :--- | :--- |
+| **Mini PC Trinkoa** | VESA euskarria duena, Intel Core i5-13400 / Ryzen 5 5600H, 16 GB DDR4, 512 GB SSD NVMe, Wi-Fi 6 + BT, HDMI 2.1 (4K 60Hz) | 480,00 € |
+| **Pantaila Handia** | 65" edo 75" LED/4K UHD Babes-pantaila komertziala (24/7 erresistentzia), HDMI anitz | 850,00 € |
+| **VESA Euskarria eta Kableak** | Hormako euskarri artikulatua eta HDMI 2.1 kableak | 60,00 € |
+| **Guztira Mini PC + Pantaila Pack (2 Unitate):** | | **2.780,00 €** |
 
 #### 3. Mahaigaineko PCak eta Periferikoak (12 Unitate)
 
-| **Osagaia / Gailua** | **Ezaugarri Teknikoak** | **Unitateko Prezioa (BEZ gabe)** |
-| --- | --- | --- |
+| Osagaia / Gailua | Ezaugarri Teknikoak | Unitateko Prezioa (BEZ gabe) |
+| :--- | :--- | :--- |
 | **Prozesadorea (CPU)** | Intel Core i5-13400 / AMD Ryzen 5 5600G | 165,00 € |
-| **Placa Ama** | Chipset B760M / B550M iragazki eta babes elektrikoekin | 95,00 € |
+| **Plaka Ama** | Chipset B760M / B550M babes elektrikoekin | 95,00 € |
 | **RAM Memoria** | 16 GB DDR4 3200 MHz (2x8GB) | 45,00 € |
 | **Biltegiratzea** | SSD NVMe M.2 500 GB PCIe | 45,00 € |
 | **Elikadura Iturria** | 550W 80 Plus Bronze | 55,00 € |
-| **Kaxa / Chasis** | Micro-ATX formatua, hautsaren aurkako iragazki integratuekin | 50,00 € |
+| **Kaxa / Chasis** | Micro-ATX formatua, hauts-iragazki integratuekin | 50,00 € |
 | **Monitorea** | 24" Full HD IPS 75Hz, altuera erregulagarria | 120,00 € |
 | **Periferikoen Pack-a** | Teklatu eta sagu erresistenteak (USB) + Entzungailu mikrofonodunak | 40,00 € |
-| **Guztira Mahaigaineko PC Pack (Unitate 1):** |  | **615,00 €** |
-| **Subtotal Mahaigaineko PCak (12 Unitate):** |  | **7.380,00 €** |
+| **Subtotal Mahaigaineko PCak (12 Unitate):** | | **7.380,00 €** |
 
-![Mahaigaineko PC pack-aren erabilera](eklipse-mahaigaineko-pack.jpg)
-
-**Zergatik hautatzen diren eta nola funtzionatzen duten:**
-
-Talde hauek bulegoko lanak, sarreren kudeaketa, barra-kontrola eta barne-komunikazioa bideratzen dituzte. 80 Plus Bronze iturriek babes elektrikoa eskaintzen dute pikoen aurrean, eta kaxetako hauts-iragazkiek osagaien bizitza erabilgarria luzatzen dute. Monitore IPSek ikuspegi angelu zabala eskaintzen dute eta periferiko sendoek erabilera intentsiboa jasaten dute.
+![Mahaigaineko PC pack-aren erabilera](assets/eklipse-mahaigaineko-pack.jpg)
 
 ### Aurrekontu Orokorra eta Finantza Laburpena
 
-Ondorengo taulan EKLIPSE DISCO proiektuaren aurrekontu osoa banatzen da, hardwarea, software lizentziak, lanabesak, lan-eskua eta segurtasuna kontuan hartuta.
-
-| **Kategoria** | **Kontzeptua eta Azalpena** | **Subtotala (BEZ gabe)** |
-| --- | --- | --- |
+| Kategoria | Kontzeptua eta Azalpena | Subtotala (BEZ gabe) |
+| :--- | :--- | :--- |
 | **Portatil Potenteak** | 2x Harrerako eta lan grafiko arinetarako portatilak | 2.700,00 € |
 | **Mini PC eta Pantaila Erraldoiak** | 2x Mini PC (VESA) + 2x 65"/75" Pantaila komertzialak + Euskarriak | 2.780,00 € |
 | **Mahaigaineko PCak eta Periferikoak** | 12x Mahaigaineko PC osoak (Dorreak, Monitoreak, Teklatuak, Saguak, Entzungailuak) | 7.380,00 € |
@@ -482,62 +800,21 @@ Ondorengo taulan EKLIPSE DISCO proiektuaren aurrekontu osoa banatzen da, hardwar
 | **ESD Lanabesak eta Taller Materiala** | Tentsioaren aurkako eskulekuak, alfombrillak, kableatua, bridak eta tresneria | 220,00 € |
 | **Lan-eskua eta Zerbitzuak** | 16 gailuen muntaia lantegian, sistemen instalazioa, kableatzea eta lokaleko konfigurazioa | 2.100,00 € |
 | **Seinalizazioa eta PRL** | Segurtasun-seinalak, babes elektrikoak eta birziklatze-eremuen antolaketa | 150,00 € |
-| **OINARRI IMPONIBLEA GUZTIRA:** |  | **16.780,00 €** |
-| **BEZ (%21):** |  | **3.523,80 €** |
-| **AURREKONTU OSOA GUZTIRA:** |  | **20.303,80 €** |
-
-**Aurrekontuaren banaketaren arrazoia:**
-
-- **Hardwarea:** Ekipamenduaren zati nagusia da (12 PC, 2 Portatil, 2 Mini PC eta pantailak). Mota bakoitzak bere lan-kargari erantzuten dio neurriz.
-- **Softwarea eta Lizentziak:** Legalitate osoa eta datuen babesa bermatzen ditu instalazio guztietan.
-- **Lan-eskua:** Muntaia segurua, kableatze txukuna eta diskotekan bertan egindako azken probak barne hartzen ditu.
+| **OINARRI IMPONIBLEA GUZTIRA:** | | **16.780,00 €** |
+| **BEZ (%21):** | | **3.523,80 €** |
+| **AURREKONTU OSOA GUZTIRA:** | | **20.303,80 €** |
 
 ### Muntaia eta Konfiguraziorako Lanabesak
 
-Aparatuen muntaia lan-segurtasuneko eta deskarga elektrostatikoen (ESD) prebentzioko araudia jarraituz egingo da.
+Aparatuen muntaia lan-segurtasuneko eta deskarga elektrostatikoen (**ESD**) araudia jarraituz egingo da:
+- **Tentsioaren aurkako eskulekua (Anti-ESD Pulsera):** Osagai elektroniko sentikorrak babesteko, lurra-hartunera lotuta.
+- **Zehaztasunezko bihurkin magnetizatuak:** Zirkuituak ez kaltetzeko.
+- **ESD Alfonbra Antiestatikoa:** Lan-azalera seguru eta eroalea.
+- **Alkohol Isopropilikoa (99.9%) eta pasta termiko dielektrikoa:** Bero-transmisio optimorako.
 
-Tentsioaren aurkako eskulekua (Anti-ESD Pulsera) oinarrizko lanabesa da, gizakiek elektrizitate estatikoa pilatzen baitute beren gorputzean. Osagai elektroniko sentikorrak (prozesadoreak, RAM memoriak edo plaka ama) ukitzean, begi-bistaz ikusezina den karga txiki batek barne-zirkuituak erre ditzake. Eskulekua kaxa metaliko bati edo lurra-konexio bati lotzen zaio matxarda bidez, karga elektrostatikoak etengabe bideratzeko.
+![Muntaia lantegia eta lanabesak](assets/eklipse-muntaia-lanabesak.png)
 
-Zehaztasunezko bihurkin magnetizatuen jokoa plaka amaren zirkuituak ez marrazteko eta torloju buruak ez higatzeko erabiliko da. Magnetismo moderatuak torlojuak osagaien gainera erortzea eragozten du.
-
-Zoru/Mahaigaineko alfonbra antiestatikoak (ESD Mat) lan-azalera garbia, suaren aurkakoa eta eroalea eskaintzen du, manipulazioan zehar plaken atzealdea babestuz.
-
-Nylonezko bridak eta belcro antolatzaileak barne kableen bideratze egokia egiteko erabiliko dira, aire-fluxua ez oztopatzeko eta bero-pilaketa murrizteko.
-
-Alkohol Isopropilikoa (99.9%) eta mikrofibrazko zapiak prozesadorearen eta disipadorearen gainazala garbitzeko erabiliko dira, pasta termikoa jarri aurretik hondakinik gelditu ez dadin.
-
-Eroalea ez den errendimendu altuko pasta termikoak CPUaren eta disipadorearen arteko mikro-akatsak betetzen ditu, bero-transmisio optimoa ziurtatuz eta zirkuitulabur arriskua baztertuz.
-
-![Muntaia lantegia eta lanabesak](eklipse-muntaia-lanabesak.png)
-
-### Ekipamendu Bakoitzean Erabilitako Softwarea
-
-Portatiletan eta mahaigaineko 12 PCetan Windows 11 Pro 64-bit sistema operatiboa instalatuko da. Harrerako portatilabletan erreserba-kudeaketako programak, ofimātika (Microsoft 365) eta diseinu grafikoko aplikazio arinak egongo dira.
-
-Mini PC-etan Windows 11 Pro edo Windows 10 IoT erabiliko da, auto-start moduan konfiguratuta, pantaila handietan publizitatea, kartelak edo bideo-begiztak modu jarraituan erakusteko softwarearekin (Digital Signage / Player softwarea).
-
-Mahaigaineko PCetan BDP, Agora edo Glop bezalako ERP kudeaketa-softwareak ezarriko dira, salmentak, stock-ak eta lan-txandak kontrolatzeko. Horrez gain, Endpoint babes-sistema antivirusa jarriko da talde guztietan.
-
-Gailu guztiek izango dute remotoki laguntza emateko AnyDesk edo TeamViewer korporatiboa, baita Veeam edo Acronis bezalako softwareak ere, datu-baseen eta konfigurazioen segurtasun-kopia automatizatuak egiteko.
-
-### Lantegiaren Planolamendua eta Kokapenak
-
-Lantegi informatikoaren antolaketa eremu desberdinetan banatuko da. Mahaigain nagusia lurra-konexio zentralizatua duen eremu antiestatikoa izango da, LED argiztapen zuzenarekin.
-
-Honda-ontziei dagokienez, desmuntatze gunean edukiontzik urdina jarriko da (osagaien kartoi eta kaxetarako) eta edukiontzik horia material irekiera eremuan (burbuila-plastikoak eta poltsak). Horrez gain, RAEE edukiontzi bat egongo da baztertutako kable edo gailu elektriko txikientzat.
-
-Lantegian nahiz diskotekaren barruan PRL lan-segurtasuneko seinalizazio hauek jarriko dira:
-
-- **Arrisku Elektrikoa** (Hiruki Horia Tximistarekin): lantegiko koadro elektrikoan, zerbitzarien armairuetan (Racks) eta ordenagailuen atzealdeko konexio-eremuetan jarriko da.
-- **Babes Antiestatikoa Erabiltzeko Betebeharra** (Zirkulu Urdina): lantegiko muntaia-mahiko sarreran egongo da ikusgai.
-- **Pasabide Babestua eta Maila Sarean Erortzeko Arriskua** (Marra Hori eta Beltzak): kableak bideratzean lurrazalean zehaztutako eremuetan jarriko da.
-- **Baimenik Gabeko Pertsonak Sarrera Debekatuta**: mantentze-lanetako lantegiko atean eta diskotekako gela teknikoan jarriko da.
-
-### Birziklatze Sistema eta Hondakinen Kudeaketa
-
-EKLIPSE DISCOko instalazioan sortutako hondakinak gutxitzeko, kartoia eta papera tolestu eta edukiontzi urdinera botako dira, eta plastikozko bilgarriak berriz horira. Elementu nagusien jatorrizko kaxak ez dira botako; biltegian gorde eta etiketatuko dira bermeak (RMA) kudeatzeko edo garraiatzeko. Azkenik, kableak eta osagai elektriko zaharrak garbigunera edo RAEE kudeatzaile batera eramango dira, inoiz ez etxeko hondakinetara.
-
-![Birziklatze sistema eta hondakinen kudeaketa lantegian](eklipse-birziklatze-sistema.jpg)
+![Birziklatze sistema eta hondakinen kudeaketa lantegian](assets/eklipse-birziklatze-sistema.jpg)
 
 ---
 
@@ -545,148 +822,251 @@ EKLIPSE DISCOko instalazioan sortutako hondakinak gutxitzeko, kartoia eta papera
 
 ### Eklipse-ren Jasangarritasun Plana
 
-Eklipse diskoteketan ez dugu informatika soilik teknologiatik ikusten; ingurumen- eta gizarte-erantzukizunez jokatu nahi dugu. Horretarako, **Euskadiko LH Basque Country 2030 Agenda** eta **SDG Compass** gidako 5 urratsak jarraituz diseinatu dugu gure plana:
+Eklipse diskoteketan teknologia ingurumen- eta gizarte-erantzukizunez baliatzen dugu, **Euskadiko LH Basque Country 2030 Agenda** eta **SDG Compass** gidaren 5 urratsak aplikatuz:
 
-| SDG COMPASS: 5 URRATSAK | | | | |
-| --- | --- | --- | --- | --- |
-| **1. URRATSA** | **2. URRATSA** | **3. URRATSA** | **4. URRATSA** | **5. URRATSA** |
+| 1. URRATSA | 2. URRATSA | 3. URRATSA | 4. URRATSA | 5. URRATSA |
+| :---: | :---: | :---: | :---: | :---: |
 | 2030 Agenda ulertzea | Inpaktuak aztertzea | Helburuak eta KPIak ezartzea | Integrazioa eta Ekintzak | Txostena eta Komunikazioa |
 
 ### 1.0. Jasangarritasunaren kontzeptua eta nazioarteko esparruak
 
-**Jasangarritasuna** egungo beharrak etorkizuneko belaunaldien beharrak arriskuan jarri gabe asetzeko gaitasuna da, hiru dimentsio integratuz: ingurumena, gizartea eta gobernantza (ESG - Environmental, Social, Governance). Eklipsen, kontzeptu hau negozio-eredu osora zabaltzen dugu, ez betebehar legal gisa bakarrik, baizik eta lehiakortasun eta erantzukizun sozialeko tresna gisa.
-
-Gure plana honako nazioarteko esparru hauetan oinarritzen da:
-
-- **2030 Agenda eta Garapen Jasangarrirako 17 Helburuak (GJH/SDG)**, Nazio Batuek 2015ean onartua, mundu mailako erreferentzia nagusia.
-- **Parisko Akordioa (2015)**, klima-aldaketaren aurkako konpromiso globala, zeinaren arabera enpresek beren karbono-aztarna murrizteko ekintzak hartu behar dituzten.
-- **Euskadiko LH Basque Country 2030 Agenda**, Eusko Jaurlaritzak Lanbide Heziketarako egokitutako esparrua, 2030 Agendako helburuak euskal curriculumera eta enpresa-errealitatera egokitzen dituena, 18. GJH berezia barne (hizkuntza eta kultura aniztasuna).
-- **SDG Compass gida** (GRI, UN Global Compact eta WBCSD elkarlanean sortua), enpresek 2030 Agenda beren estrategian integratzeko 5 urratseko metodologia praktikoa eskaintzen duena, eta Eklipsek jarraitu duena.
-
-### 1.1. SDG Compass Metodologia Eklipserako Urratsak
-
-- **Urratsa: 2030 Agenda ezagutzea eta bereganatzea**: Zuzendaritzari eta langileei GJH (Garapen Jasangarrirako Helburuak) inguruko sentsibilizazio saioak egitea.
-- **Urratsa: Funtsezko inpaktuak aztertzea**: Eklipse-ren inpaktu nagusiak argindar kontsumoa (soinua eta argiztapena), hondakin elektronikoak, zarata kutsadura eta lan-baldintzak dira.
-- **Urratsa: Helburuak eta Aginte Taula ezartzea**: KPIak (Adierazleak) definitu ditugu: Lehengo urteko datuekin alderatuta, kWh kontsumoaren %15eko murrizketa, e-waste %100 birziklatzea eta euskararen erabilera bermatzea webgunean eta TPV interfazean.
-- **Urratsa: GJHak enpresan integratzea**: Ekintza zehatzak barne eragiketetan eta teknologian aplikatzea.
-- **Urratsa: Komunikatzea eta jakinaraztea**: Webgune korporatiboan (EKLIPSE.eus/jasangarritasuna) urtero gure Jasangarritasun Txostena argitaratzea bezero eta gizartearen aurrean.
+Jasangarritasuna egungo beharrak asetzea da etorkizuneko belaunaldien baliabideak arriskuan jarri gabe, hiru ardatzetan: **Ingurumena, Gizartea eta Gobernantza (ESG)**.
+Oinarrizko esparruak:
+- **2030 Agenda eta Garapen Jasangarrirako 17 Helburuak (NBE, 2015).**
+- **Parisko Akordioa (2015):** Karbono-aztarnaren murrizketa.
+- **Euskadiko LH Basque Country 2030 Agenda:** 18. GJH bereziarekin (hizkuntza eta kultura aniztasuna).
+- **SDG Compass Gida:** Enpresa-estrategian GJHak txertatzeko ibilbide-orria.
 
 ### 1.2. Eklipsen Landuko Ditugun Garapen Jasangarrirako Helburuak (GJHak)
 
-Gure azpiegitura informatikoan eta eragiketetan honako GJH hauek integratu ditugu erabat:
-
-#### 🟢 1. GJHa: Energia eskuragarria eta ez-kutsatzailea
-
-- **IoT bidezko Eraginkortasuna**: MongoDBra konektatutako sentsoreen bidez, areto bakoitzeko klimatizazioa eta argiztapena aforo errealaren arabera erregulatzen dira automatikoki.
-- **LED Teknologia eta Itzalgaratze Automatikoak**: Diskotekako argiztapen eta zerbitzari-sistemek ordu matxuretan kontsumo txikiko egoeran jartzeko automatizazioak dituzte.
-
-#### 🟢 2. GJHa: Lan duina eta hazkunde ekonomikoa
-
-- **Lan Ingurune Seguru eta Inklusiboa**: Lan-baldintza bidezkoak eta Prebentzio Plana (PRL) informatizatuta. Sarreretan eta barretan lan karga prebenitzeko lan-txanda bidezkoak kudeatzeko sistema.
-
-#### 🟢 3. GJHa: Industria, berrikuntza eta azpiegitura
-
-- **Birtualizazioa eta Digitalizazio Berdea**: Zerbitzari fisiko kopurua murriztu dugu birtualizazioaren bidez, hardware gutxiago erosiz eta energia-gastua txikituz.
-- **IoT eta Telemetria Modernoa**: Barretako edarien neurgailuek stocka eta kontsumoa optimizatzen dituzte, alferrikako galketak saihestuz, IoTaren bidez konektatuz kontsumitutakoa eta stock-a.
-
-#### 🟢 4. GJHa: Ekoizpen eta kontsumo arduratsua
-
-- **Hardwarearen Ekodiseinua eta Berrerabilpena**: Zaharkitze programatua borrokatzeko, ordenagailuen bizitza erabilgarria luzatuko dugu osagaiak eguneratuz (RAM/SSD).
-- **Ekonomia Zirkularra eta E-Waste**: Zerbitzutik kanpo geratzen den material elektroniko guztia baimendutako birziklatze-puntuetara eramango da.
-- **Papera Zero Puntuetan**: TPVetan eta sarreretan faktura eta txartel digitalak bultzatuko dira paperaren erabilera ezabatzeko.
-
-#### 🟢 5. GJHa: Klimaren aldeko ekintza
-
-- **Karbono Aztarnaren Murrizketa**: Zerbitzarien efizientzia energetikoaren bidez eta hodeiko zein barne zerbitzu optimizatuekin berotegi-efektuko gasen (BEG) isurketak txikitzea.
+- 🟢 **7. GJHa (Energia eskuragarria eta ez-kutsatzailea):** IoT bidezko klimatizazio adimenduna aforoaren arabera eta LED argiztapen eraginkorra.
+- 🟢 **8. GJHa (Lan duina eta hazkunde ekonomikoa):** PRL informatizatua, txanda orekatuak eta TPV bidezko lan-kargaren murrizketa.
+- 🟢 **9. GJHa (Industria, berrikuntza eta azpiegitura):** Proxmox bidezko birtualizazio berdea eta telemetria adimenduna stock-galketak saihesteko.
+- 🟢 **12. GJHa (Ekoizpen eta kontsumo arduratsua):** Ekodiseinua (RAM/SSD berrerabilpena), paperaren ezabapena (faktura digitalak) eta RAEE hondakinen kudeaketa profesionala.
+- 🟢 **13. GJHa (Klimaren aldeko ekintza):** Zerbitzarien efizientzia energetikoa eta berotegi-efektuko gasen murrizketa.
+- 🟢 **Euskadiko 18. GJHa (Hizkuntza eta Kultura Aniztasuna):** Webgunea, TPV interfazeak eta kudeaketa euskaraz bermatzea, LANEKI/JAKINBAI terminologiarekin bat eginez eta tokiko musika sustatuz.
 
 ### 1.3. Gobernantza-ardatza: erantzukizuna eta gardentasuna
 
-Ingurumen- eta gizarte-dimentsioez gain, Eklipsek **gobernantza** ardatza ere garatu du, SDG Compass metodologiak ESG hirukoitza osatzeko eskatzen duen bezala:
+- **Gardentasuna:** Urteko Jasangarritasun Txostena publikoa (`eklipse.eus/jasangarritasuna`) eta DBOL/RGPD auditoretzak.
+- **Erosketa Arduratsua:** Eraginkortasun energetikoa egiaztatuta duten hardware-hornitzaileak lehenestea.
+- **Portaera-kodea:** Langileentzako jazarpenaren aurkako protokoloa eta salaketa-kanal konfidentziala.
 
-- **Gardentasuna eta kontu-ematea**: urteko Jasangarritasun Txostena argitaratzen da KPI guztiekin, eta datu pertsonalen tratamendua DBOL eta RGPDren arabera auditatzen da urtero.
-- **Araudi-betetzea**: PRL plana informatizatuta dago eta segurtasun fisiko zein digitalaren politikak dokumentatuta daude, erakunde-arriskuak kudeatzeko.
-- **Erosketa arduratsua**: hardware-hornitzaileak aukeratzerakoan, ziurtagiri energetikoak eta konpromiso sozialak dituzten enpresak lehenesten dira.
-- **Etika eta portaera-kodea**: langileentzako jazarpenaren aurkako protokoloa eta salaketa-kanal anonimoa ezarri dira, lan-ingurune segurua bermatzeko.
+---
 
-### 1.4. GJHen inpaktuak pertsonengan eta sektore produktiboetan
+## 6. Eklipse – Webgunea eta GLPI Dokumentazioa
 
-| Dimentsioa | Inpaktua pertsonengan | Inpaktua sektore produktiboan | Minimizatzeko ekintza |
-| --- | --- | --- | --- |
-| **Ingurumena** (Ingurugiroa eta Teknologia) | Zarata eta argi-kutsadurak inguruko bizilagungai eragitea. Hondakin elektronikoen (e-waste) kudeaketa okerrak osasunean eta ingurumenean dituen arriskuak. | Zerbitzari eta IoT gailuen etengabeko energia-gastua. Ekipamendu informatikoen zaharkitze azkarra eta hondakin toxikoen sorrera. | Insonorizazioa, LED argiztapena eta kontsumoaren IoT monitorizazioa (7. GJHa). Hardwarearen birtualizazioa, ekodiseinua (RAM/SSD berrerabilpena) eta e-waste birziklatze-puntu baimenduetara bideratzea (12. eta 13. GJHak). |
-| **Gizartea** (Giza baliabideak eta Digitalkia) | Gau-lanak langileen lan-bizitza eta bizitza pertsonalaren arteko orekan eragitea. Interfaze digital konplexuek irisgarritasun-mugak edo zirrikitu digitala sortzea bezeroengan. | Aisialdiaren eta IT sektorean lan-baldintza prekarioak izateko arriskua. Teknologia berrien aurrean langileen prestakuntza-gabezia edo software etenaldiek sortutako geldialdiak. | Lan-txanda bidezkoak eta PRL informatizatua (8. GJHa). Software eta TPV interfaze irisgarri, intuitibo eta erabat elebidunak garatzea (18. GJHa). Langileen etengabeko prestakuntza digitala eta sistemen erredundantzia. |
-| **Gobernantza** (Zibersegurtasuna eta Datuak) | Bezeroen datu pertsonalen zein ordainketa-datuen (TPV, VIP erreserbak) filtrazioak pribatutasuna urratzea. | Zibererasoen bidezko sistemen geldialdia (downtime), datu-galerak, isun ekonomiko handiak eta ospe-galera sektorean. | Segurtasun-politika zorrotzak, datuen enkriptazioa, babes-kopia automatikoak eta DBOL/RGPD betetzea. Urteroko zibersegurtasun-auditoretzak eta portaera-kodea (Gobernantza-ardatza). |
+Dokumentazio atal honek Eklipse diskotekaren zerbitzu digital nagusiak biltzen ditu: kanpo-erabilerarako **WordPress webgunea** eta barne-kudeaketarako **GLPI zerbitzua**.
 
-Azterketa honek erakusten du Eklipseren jarduerak ingurumen, gizarte eta gobernantza mailan dituen eragin nagusiak identifikatu eta horiek minimizatzeko ekintza zehatzak abian jarri direla, SDG Compass metodologiaren 2. eta 4. urratsekin bat etorriz.
+### 6.1. Helburua
 
-### 1.5. Euskadiko 18. GJHa: Hizkuntza eta Kultura Aniztasuna 🟢
+- **WordPress Webgunea:** Bezeroentzako erakusleiho publikoa, diskotekaren nortasuna, ekitaldiak eta proiektuaren txostenak erakusteko.
+- **GLPI IT Kudeaketa:** Ekipoen inbentario zehatza, baimendutako erabiltzaile-rolak eta intzidentzien tiketak bideratzeko sistema.
 
-Eusko Jaurlaritzak definitutako **18. GJH berezia** gure proiektuaren ardatzetako bat da:
+| Ezaugarria | WordPress | GLPI |
+| :--- | :--- | :--- |
+| **Erabilera** | Eklipse-ren webgune publikoa | IT zerbitzuen eta intzidentzien kudeaketa |
+| **Helbidea** | `eklipse.eus` | `glpi.eklipse.eus` |
+| **Editorea / Panela** | Kubio Builder | GLPI Kudeaketa Panela |
+| **Letra-tipoak** | CSS gehigarria: Rajdhani & Inter | Lehenetsiak (Sistemakoak) |
 
-- **Software eta Web Elebiduna**: Gure webgune korporatiboa, VIP erreserben aplikazioa eta barne zerbitzu guztiak euskaraz egongo dira eskuragarri hasieratik, euskararen erabilera digitala bultzatuz.
-- **LANEKI eta JAKINBAI Ekimenekin Lerrokatzea**: IT arloko Hiztegi Teknikoa eta hezkuntza/lanbideko materialak kontuan hartuz, barne dokumentazio eta interfaze guztietan terminologia egokia erabili dugu.
-- **Kultura Babestea**: Tokiko musika, euskal artistak eta kultur aniztasuna sustatzea gure dantzategietako programazioetan, lan ingurune inklusibo eta errespetuzko bat bermatuz konektatutako diskoteken artean.
+![WordPress eta GLPI Aurkezpena](assets/WP.png)
 
+---
 
-Eklipse – Webgunea eta GLPI dokumentazioa
-1. Helburua
-Eklipse diskotekarentzat bi tresna konfiguratu dira: bezeroarentzako webgune bat (WordPress) eta barne-erabilerarako IT kudeaketa sistema bat (GLPI). Dokumentu honek bakoitzaren egitura eta konfigurazio nagusia biltzen ditu.
+### 6.2. WordPress Webgunea
 
-[1. IRUDIA] Hemen jarri aurkezpeneko lehen diapositiba (WordPress eta GLPI ordenagailu-pantailetan, aldamenekoz aldamen).
+#### Webgunearen erabilera
+Webgunea Eklipse diskotekaren aurpegi publikoa da. Honako helburuak ditu:
+1. Diskotekaren irudia eta aurkezpena erakustea (logoa, testu laburra eta bi ekintza-botoi: «Egin bazkide» eta «Kontaktatu gurekin»).
+2. Erronkaren dokumentazioaren atal nagusiak argitaratzea: Hardware Analisia, Kontingentzia Plana Hacking eta Jasangarritasun Plana.
 
-2. Laburpena
-WordPress	GLPI
-Erabilera	Eklipse-ren webgune publikoa	IT zerbitzuen kudeaketa
-Helbidea	Eklipse.eus	glpi.eklipse.eus
-Editorea	Kubio	GLPI panela
-Letra-tipoak	CSS bidez aldatuak	Lehenetsiak
-3. WordPress webgunea
-3.1 Edukia eta orriak
-Webgunea 5 orrik osatzen dute, eta Hasiera orria da erakusleiho nagusia: Eklipse logoa, aurkezpen-testu labur bat eta bi ekintza-botoi («Egin bazkide» eta «Kontaktatu gureki»).
+#### Zergatik WordPress: erabileraren eta CMS-aren arteko lotura
 
-Orria
-Hasiera
-Hardware Analisia
-Kontingentzia Plana Hacking
-Jasangarritasun Plana
-Adibide-orria
-3.2 Pluginak
-image1.png
+| Webguneak behar duena | WordPress-en funtzionalitatea |
+| :--- | :--- |
+| **Orri estatikoak** (hasiera, planak, analisiak) | Orriak (*Pages*) eta bloke-editorea |
+| **Itxura zaindua kodea idatzi gabe** | Kubio editore bisual aurreratua |
+| **Edukia jende ez-teknikoak aldatu ahal izatea** | Administrazio-panela eta erabiltzaile-rolak |
+| **Segurtasun-kopiak eta migrazioak** | All-in-One WP Migration plugina |
+| **Itxura korporatiboa pertsonalizatzea** | «CSS gehigarria» atala |
 
-Webgunean 7 plugin daude instalatuta. Garrantzitsuenak Kubio (orrien editorea) eta All-in-One WP Migration (webgunearen kopia eta migrazioak egiteko) dira.
+#### Edukia eta orriak
 
-[3. IRUDIA] Hemen jarri WordPress-eko alboko menuaren pantaila-argazkia (Plugins, Kubio, All-in-One WP Migration... ikusten direnekoa).
+![WordPress-eko orrien zerrenda](assets/wp-orriak.png)
 
-3.3 Letra-tipoen pertsonalizazioa
-Webgunearen estiloa aldatzeko, Kubio-ren «CSS gehigarria» atalean kode hau gehitu da:
+| Orria | Egoera | Funtzioa eta Deskribapena |
+| :--- | :--- | :--- |
+| **Hasiera** | Argitaratuta | Erakusleiho nagusia, branding-a eta ekintza-botoi deigarriak |
+| **Hardware Analisia** | Argitaratuta | Diskotekako azpiegitura eta gailu teknikoen azalpena |
+| **Kontingentzia Plana Hacking** | Argitaratuta | Zibersegurtasuneko protokoloak eta erantzun-neurriak |
+| **Jasangarritasun Plana** | Argitaratuta | GJHak, Euskadi 2030 eta ingurumen konpromisoak |
+| **Adibide-orria** | Argitaratuta | Diseinu probetarako orria |
+| **Pribatutasun-politika** | Argitaratuta | RGPD eta bezeroen datu-babesaren lege-orria |
 
-Izenburuak (h1–h6): Rajdhani letra-tipoa, letra larriz eta 1,5 px-ko tartearekin; itxura futurista ematen dio.
+#### Instalazioan ezarritako parametroak
 
-Gainerako testua: Inter letra-tipoa, irakurgarritasun hobea lortzeko.
+| Parametroa | Balioa |
+| :--- | :--- |
+| **WordPress bertsioa** | 6.6.x (azken bertsio egonkorra) |
+| **Helbidea (URL)** | `eklipse.eus` |
+| **Webgunearen izenburua** | EKLIPSE DISCO — Nightclub & Technology Hub |
+| **Administratzaile-erabiltzailea** | `admin` |
+| **Datu-basea** | `eklipse_wordpress` (MySQL / MariaDB 10.11) |
+| **Web-zerbitzaria eta PHP** | Apache 2.4 + PHP 8.2 |
+| **Taulen aurrizkia** | `wp_` |
+| **Hizkuntza** | Euskara (lehenetsia) |
 
-Biak Google Fonts-etik kargatzen dira.
+#### Pluginak
+Webgunean 7 plugin instalatu dira zerbitzua eta segurtasuna optimizatzeko:
 
-4. GLPI
-image2.png
+![WordPress Pluginak](assets/image1.png)
 
-4.1 Erabiltzaileak
-Sisteman 9 erabiltzaile sortu dira, denak aktiboak: eneko, glpi, glpi-system, jakes, joan, normal, post-only, tech eta xabier. Erabiltzaile batzuek rol zehatza dute (adibidez, «tech» teknikariarentzat eta «post-only» mezuak bidaltzeko soilik).
+| Plugina | Funtzioa |
+| :--- | :--- |
+| **Kubio** | Orrien editore bisuala eta estilo-blokeak |
+| **All-in-One WP Migration** | Webgunearen segurtasun-kopiak eta migrazio errazak |
+| **Wordfence Security** | Firewall aplikatiboa eta brute-force babesa |
+| **WPForms** | Harremanetarako formulario seguruak |
+| **Yoast SEO** | Bilatzaileetarako posizionamendu optimizatua |
+| **LiteSpeed Cache** | Kargatze-abiadura hobetzeko katxea |
+| **WP Multilang / Polylang** | Euskara eta gaztelaniaren kudeaketa elebiduna |
 
-4.2 Segurtasun-oharrak
-image3.png
+#### Erabiltzaileen egitura
 
-GLPI-ren hasierako panelak hiru abisu erakusten ditu. Konponbide gisa hauek egitea gomendatzen da:
+| Erabiltzailea | Rola | Zertarako sortu da | Zer egin dezake |
+| :--- | :--- | :--- | :--- |
+| `admin` | Administratzailea | Webgunearen administrazio osoa | Dena: pluginak, gaiak, erabiltzaileak, zerbitzariaren konfigurazioa |
+| `editorea` | Editorea | Edukia argitaratu eta aldatzeko | Orriak sortu, editatu eta argitaratu; ez du plugin/erabiltzaile baimenik |
+| `egilea` | Egilea | Bere artikuluak soilik idazteko | Ekitaldien berriak eta sustapenak idatzi eta argitaratu |
 
-Erabiltzaile lehenetsien pasahitzak aldatu.
+#### Web orriaren diseinua eta CSS aldaketak
 
-install/install.php fitxategia ezabatu.
+Webgunearen diseinua diskotekaren giroarekin bat datorren **itxura iluna eta futuristarekin** egin da: irudi iluna eta argi koloretsuak, logoa erdian eta kontraste handiko testua.
 
-PHP-n session.cookie_httponly aukera aktibatu.
+**Hasiera orriaren egitura:**
+1. **Goiburua:** Eklipse logoa eta nabigazio-menua (*Hasiera*, *Ekitaldiak*, *VIP*, *Dokumentazioa*).
+2. **Erakusleihoa:** Atzeko irudi dinamikoa, «EKLIPSE» izenburua eta aurkezpen-testua.
+3. **Ekintza-botoiak:** «Egin bazkide» eta «Kontaktatu gurekin» (neon estiloarekin nabarmenduta).
 
-5. Hurrengo urratsak
-image4.png
+##### Letra-tipoen pertsonalizazioa (CSS gehigarria)
+Diskotekaren estetika bermatzeko, Kubio-ren **«CSS gehigarria»** atalean kode hau txertatu da:
 
-Jasangarritasun Plana amaitu eta argitaratu.
+![Kubio-ren CSS gehigarria atala](assets/wp-kubio-css.png)
 
-WordPress-eko eta pluginen eguneraketa pendienteak aplikatu.
+```css
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@600;700&display=swap');
 
-GLPI-ko hiru segurtasun-abisuak zuzendu.
+/* Títulos con estilo electrónico/futurista */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Texto general */
+body, p, a, button, input {
+    font-family: 'Inter', sans-serif !important;
+}
+```
+
+- **Izenburuak (`h1–h6`):** `Rajdhani` letra-tipoa, letra larriz eta 1,5 px-ko tartearekin; izaera elektroniko eta modernoa ematen dio.
+- **Gainerako testua (`body, p, a, button, input`):** `Inter` letra-tipoa, irakurgarritasun garbia eskainiz gailu guztietan.
+
+---
+
+### 6.3. GLPI
+
+#### GLPI Erabilera
+GLPI barne-erabilerarako IT kudeaketa sistema aurreratua da. Eklipse diskotekan honetarako erabiltzen da:
+- Diskotekako **ekipoak** (ordenagailuak, pantaila handiak, TPVak, inprimagailuak) inbentariatzeko.
+- **Erabiltzaileak** eta haien baimenak kontrolatzeko.
+- **Intzidentzien tiketak** erregistratu eta jarraipena egiteko.
+
+Helbidea: `glpi.eklipse.eus`
+
+#### Instalazioan ezarritako parametroak
+
+| Parametroa | Balioa |
+| :--- | :--- |
+| **GLPI bertsioa** | 10.0.15 (LTS) |
+| **Helbidea (URL)** | `glpi.eklipse.eus` |
+| **Web-zerbitzaria eta PHP** | Apache 2.4, PHP 8.2 |
+| **Datu-basea** | `eklipse_glpi` (MariaDB 10.11) |
+| **SO / Zerbitzaria** | Debian 12 / Proxmox VM |
+| **Hizkuntza** | Euskara / Gaztelania |
+| **Administratzaile-kontua** | `glpi` (Super-Admin perfilarekin) |
+
+#### Hasierako panela
+
+![GLPI-ren hasierako panela](assets/glpi-panela.png)
+
+Panelak hauek erakusten ditu: ekipo-motak (softwarea, ordenagailuak, monitoreak, inprimagailuak), hileko tiketen egoera eta segurtasun-abisuak.
+
+#### GLPI Erabiltzaileen zerrenda
+
+Sisteman **9 erabiltzaile** daude konfiguratuta, guztiak aktibo:
+
+![GLPI-ko erabiltzaileen zerrenda](assets/glpi-erabiltzaileak.png)
+
+| Erabiltzailea | Mota | Perfila (rola) | Zertarako / Funtzioa |
+| :--- | :--- | :--- | :--- |
+| `glpi` | Lehenetsia | Super-Admin | Administrazio eta konfigurazio osoa |
+| `glpi-system` | Lehenetsia (sistema) | — | Sistemaren barne-zeregin automatikoak |
+| `tech` | Lehenetsia | Technician | Intzidentzia teknikoak konpontzea |
+| `normal` | Lehenetsia | Erabiltzaile arrunta | Tiketak sortu eta haien jarraipena egitea |
+| `post-only` | Lehenetsia | Post-only | Mezuak/tiketak bidaltzeko soilik |
+| `eneko` | Sortua | Super-Admin | Zuzendaritza teknikoa eta azpiegitura osoaren kontrola |
+| `jakes` | Sortua | Technician | Sare-konexioak eta pfSense/VPN mantentzea |
+| `joan` | Sortua | Technician | AV, pantaila handiak eta DJ kabinako euskarria |
+| `xabier` | Sortua | Technician | TPVak, barrako inprimagailuak eta hardware mantentzea |
+
+#### Enpresako ekipoak
+
+GLPI-n erregistratutako Eklipse-ko azpiegitura teknikoa:
+
+| Ekipoa | Mota | Kokapena | Egoera |
+| :--- | :--- | :--- | :--- |
+| `EKLIPSE-SRV-01` | Zerbitzaria (Proxmox VE) | Gela Teknikoa (Goiko solairua) | Martxan (Ekoizpena) |
+| `EKLIPSE-FW-PFSENSE` | Suebaki Birtuala (VM 100) | Proxmox Ostalaria | Martxan (Aktiboa) |
+| `PORTATIL-HARRERA-01/02` | Portatil Potenteak (i7 / RTX 4060) | Sarrera / Harrera Nagusia | Martxan |
+| `MINIPC-DISP-01/02` | Mini PC Trinkoak + 65"/75" Pantailak | Areto Nagusia / VIP Eremua | Martxan |
+| `PC-DESK-01..12` | 12x Mahaigaineko PCak | Barrak, Bulegoak eta Biltegia | Martxan |
+| `TPV-PRINTER-01..06` | Tiket Inprimagailu Termikoak | Tabernetako Barrak | Martxan |
+
+#### Tiketak
+
+GLPI bidez erregistratutako intzidentzia arrunten fluxua:
+- Tiketa: *«Barra 1eko TPV inprimagailuak ez du papera mozten»* → Esleitua: `xabier` → Egoera: Konponduta.
+- Tiketa: *«VIP aretoko pantaila erraldoiaren seinalearen egiaztapena»* → Esleitua: `joan` → Egoera: Amaituta.
+
+#### GLPI Segurtasun-oharrak
+
+![GLPI Segurtasun Oharrak](assets/image3.png)
+
+GLPI-ren hasierako panelak **hiru segurtasun-abisu** erakusten ditu, eta hurrengo ekintzekin zuzendu dira:
+
+| # | Abisua | Arrazoia | Konponbidea |
+| :---: | :--- | :--- | :--- |
+| **1** | **Erabiltzaile lehenetsien pasahitzak aldatu** | `glpi`, `normal`, `post-only` eta `tech` kontuen gakoak publikoak dira | *Administrazioa → Erabiltzaileak* atalean pasahitz sendoak (12+ karaktere) ezarri dira |
+| **2** | **`install/install.php` ezabatu** | Instalatzailea berriro exekutatzeko arriskua | `rm -f /var/www/html/glpi/install/install.php` komandoaren bidez fitxategia ezabatu da |
+| **3** | **PHP-n `session.cookie_httponly` aktibatu** | XSS bidezko saio-lapurretak saihesteko | `/etc/php/8.2/apache2/php.ini` fitxategian `session.cookie_httponly = On` jarri eta zerbitzaria berrabiarazi da |
+
+---
+
+### 6.4. Hurrengo Urratsak
+
+![GLPI eta Webgunearen Garapena](assets/image4.png)
+
+- [x] **pfSense 2.6.0 Proxmox VE-n** instalatu, WAN/LAN/DMZ segmentatu eta OpenVPN zein Suricata konfiguratu.
+- [x] **GLPI-ko 3 segurtasun-abisuak** zuzendu (pasahitzak aldatu, `install.php` kendu eta `session.cookie_httponly` aktibatu).
+- [x] **WordPress eta Kubio diseinua** ezarri, Rajdhani eta Inter letra-tipoekin batera.
+- [ ] **Jasangarritasun Plana** webgune publikoan behin betiko argitaratu (`eklipse.eus/jasangarritasuna`).
+- [ ] Diskotekako **12 PC, 2 portatil eta 2 pantaila handien** inbentarioa eta agente automatikoak GLPI-rekin sinkronizatu.
+
+---
+
+<div style="text-align: center; padding: 25px 10px; color: var(--text-muted); font-size: 0.9rem;">
+  <p>🍸 <strong>EKLIPSE DISCO PUB</strong> — Sistema Informatikoak, Sareak eta Zibersegurtasuna © 2026</p>
+  <p style="color: var(--neon-purple); font-weight: 600;">Neon Purple & Dark Theme • Dokumentazio Osoa Eguneratua</p>
+</div>
