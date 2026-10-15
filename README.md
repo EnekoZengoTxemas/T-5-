@@ -390,7 +390,7 @@ Pasahitz guztiak izan beharko dute gutxienez 12 karakter, letra handi eta txiki 
 - `V13wM4n4g3r#` (Windows Server)
 - `S4f3lyL00k5_` (Linux Server)
 
-> ⚠️ **Oharra:** pasahitz hauek dokumentu originalean zeuden bezala mantendu dira. Produkzioan errealki erabiltzen badira, gomendagarria da errepositorio publikoan ez agertzea eta berehala aldatzea.
+  
 
 ### Sarbide fisikoen eta ingurumenaren politika
 
