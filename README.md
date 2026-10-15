@@ -1,4 +1,4 @@
-# T-5-# EKLIPSE — DOKUMENTAZIOA
+# T - 5 - EKLIPSE — DOKUMENTAZIOA
 
 Proiektu honetako dokumentazio teknikoa, ekonomikoa eta jasangarritasunekoa biltzen du README honek. Jatorrizko dokumentuak (Google Drive) hona kopiatu dira, formatua mantenduz.
 
