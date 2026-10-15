@@ -4,97 +4,93 @@
 
 <style>
   :root {
-    --neon-purple: #b026ff;
-    --neon-purple-glow: rgba(176, 38, 255, 0.65);
-    --neon-purple-subtle: rgba(176, 38, 255, 0.15);
-    --neon-magenta: #e056fd;
-    --neon-cyan: #00f0ff;
-    --dark-bg: #090714;
-    --dark-card: #120d24;
-    --dark-card-hover: #1a1236;
-    --text-primary: #f5f3ff;
-    --text-muted: #c4b5fd;
-    --border-color: rgba(176, 38, 255, 0.35);
+    --accent-purple: #7c3aed;
+    --light-bg: #ffffff;
+    --light-card: #f8fafc;
+    --text-primary: #000000;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
   }
 
   body, .markdown-body {
-    background-color: var(--dark-bg) !important;
+    background-color: var(--light-bg) !important;
     color: var(--text-primary) !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     line-height: 1.65;
   }
 
-  /* Headings with Rajdhani / Orbitron & Neon Purple Glow */
+  /* Encabezados en texto negro plano sin resplandor */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Rajdhani', 'Orbitron', sans-serif !important;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #ffffff !important;
+    color: #000000 !important;
     font-weight: 700;
+    text-shadow: none !important;
   }
 
   h1 {
     font-family: 'Orbitron', sans-serif !important;
-    color: #ffffff !important;
-    text-shadow: 0 0 10px var(--neon-purple), 0 0 25px var(--neon-purple-glow);
-    border-bottom: 2px solid var(--neon-purple) !important;
+    color: #000000 !important;
+    text-shadow: none !important;
+    border-bottom: 2px solid var(--accent-purple) !important;
     padding-bottom: 12px;
     margin-top: 24px;
   }
 
   h2 {
-    color: #eed6ff !important;
-    border-left: 4px solid var(--neon-purple) !important;
+    color: #000000 !important;
+    border-left: 4px solid var(--accent-purple) !important;
     padding-left: 12px;
-    text-shadow: 0 0 8px rgba(176, 38, 255, 0.45);
+    text-shadow: none !important;
     margin-top: 36px;
-    border-bottom: 1px solid var(--neon-purple-subtle);
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 6px;
   }
 
   h3 {
-    color: var(--neon-magenta) !important;
+    color: #000000 !important;
     margin-top: 26px;
   }
 
   h4 {
-    color: #d8b4fe !important;
+    color: #1e293b !important;
     margin-top: 18px;
   }
 
-  /* Disco Pub Links & Buttons */
+  /* Enlaces normales */
   a {
-    color: var(--neon-purple) !important;
+    color: var(--accent-purple) !important;
     text-decoration: none !important;
     font-weight: 600;
-    transition: all 0.25s ease-in-out;
+    text-shadow: none !important;
   }
 
   a:hover {
-    color: #ffffff !important;
-    text-shadow: 0 0 8px var(--neon-purple), 0 0 16px var(--neon-purple);
+    color: #4c1d95 !important;
+    text-decoration: underline !important;
+    text-shadow: none !important;
   }
 
-  /* Table of Contents & Navigation Pills */
+  /* Navegación */
   .disco-nav-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 20px 0 35px 0;
     padding: 16px;
-    background: linear-gradient(135deg, rgba(18, 13, 36, 0.95), rgba(30, 16, 60, 0.7));
+    background: var(--light-card);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(176, 38, 255, 0.2);
   }
 
   .disco-nav-pill {
     display: inline-block;
     padding: 8px 16px;
-    background: rgba(176, 38, 255, 0.12);
-    border: 1px solid var(--neon-purple);
+    background: #ffffff;
+    border: 1px solid var(--accent-purple);
     border-radius: 24px;
-    color: #f3e8ff !important;
+    color: #000000 !important;
     font-family: 'Rajdhani', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
@@ -104,21 +100,19 @@
   }
 
   .disco-nav-pill:hover {
-    background: var(--neon-purple) !important;
-    color: #090714 !important;
-    box-shadow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-purple-glow);
+    background: var(--accent-purple) !important;
+    color: #ffffff !important;
     transform: translateY(-2px);
   }
 
-  /* Disco Header Banner */
+  /* Banner Principal */
   .eklipse-hero {
     text-align: center;
     padding: 40px 20px;
     margin-bottom: 30px;
-    background: radial-gradient(circle at center, rgba(176, 38, 255, 0.22) 0%, rgba(9, 7, 20, 0.95) 75%);
-    border: 1px solid var(--neon-purple);
+    background: var(--light-card);
+    border: 1px solid var(--accent-purple);
     border-radius: 16px;
-    box-shadow: 0 0 30px rgba(176, 38, 255, 0.3), inset 0 0 20px rgba(176, 38, 255, 0.15);
   }
 
   .eklipse-hero h1 {
@@ -127,122 +121,105 @@
     padding: 0;
     border: none !important;
     letter-spacing: 4px;
+    color: #000000 !important;
+    text-shadow: none !important;
   }
 
   .eklipse-tagline {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.25rem;
-    color: var(--neon-magenta);
+    color: #334155;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 8px;
+    font-weight: 600;
   }
 
   .badge-neon {
     display: inline-block;
     padding: 4px 12px;
-    background: rgba(176, 38, 255, 0.2);
-    border: 1px solid var(--neon-purple);
-    color: #f3e8ff;
+    background: #f1f5f9;
+    border: 1px solid var(--accent-purple);
+    color: #000000;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 4px;
-    box-shadow: 0 0 8px rgba(176, 38, 255, 0.3);
   }
 
-  /* Tables in Disco Dark Mode */
+  /* Tablas */
   table {
     width: 100% !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
     margin: 20px 0 !important;
-    background-color: var(--dark-card) !important;
+    background-color: #ffffff !important;
     border: 1px solid var(--border-color) !important;
     border-radius: 10px !important;
     overflow: hidden !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
   }
 
   th {
-    background: linear-gradient(90deg, rgba(176, 38, 255, 0.35), rgba(124, 58, 237, 0.35)) !important;
-    color: #ffffff !important;
+    background: #f1f5f9 !important;
+    color: #000000 !important;
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 1.05rem !important;
     letter-spacing: 1px !important;
     text-transform: uppercase !important;
-    border-bottom: 2px solid var(--neon-purple) !important;
-    border-top: none !important;
+    border-bottom: 2px solid var(--accent-purple) !important;
     padding: 12px 14px !important;
     text-align: left !important;
   }
 
   td {
-    border-bottom: 1px solid rgba(176, 38, 255, 0.12) !important;
-    border-top: none !important;
+    border-bottom: 1px solid var(--border-color) !important;
     padding: 11px 14px !important;
-    color: #e2e8f0 !important;
+    color: #000000 !important;
   }
 
   tr:nth-child(even) td {
-    background-color: rgba(255, 255, 255, 0.02) !important;
+    background-color: #f8fafc !important;
   }
 
-  tr:hover td {
-    background-color: rgba(176, 38, 255, 0.08) !important;
-  }
-
-  /* Code Blocks & Inline Code */
+  /* Bloques de Código */
   code, pre {
     font-family: 'JetBrains Mono', Consolas, monospace !important;
   }
 
   code:not(pre code) {
-    background: rgba(176, 38, 255, 0.18) !important;
-    color: #f3e8ff !important;
-    border: 1px solid rgba(176, 38, 255, 0.4) !important;
+    background: #f1f5f9 !important;
+    color: #000000 !important;
+    border: 1px solid var(--border-color) !important;
     padding: 2px 7px !important;
     border-radius: 4px !important;
     font-size: 0.9em;
   }
 
   pre {
-    background: #080511 !important;
+    background: #f8fafc !important;
     border: 1px solid var(--border-color) !important;
-    border-left: 4px solid var(--neon-purple) !important;
+    border-left: 4px solid var(--accent-purple) !important;
     border-radius: 8px !important;
     padding: 16px !important;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6) !important;
+    color: #000000 !important;
   }
 
-  /* Blockquotes & Callouts */
+  /* Citas */
   blockquote {
-    background: rgba(176, 38, 255, 0.08) !important;
-    border-left: 4px solid var(--neon-purple) !important;
+    background: #f8fafc !important;
+    border-left: 4px solid var(--accent-purple) !important;
     border-radius: 0 8px 8px 0;
-    color: #e9d5ff !important;
+    color: #1e293b !important;
     padding: 14px 20px !important;
     margin: 20px 0 !important;
-    box-shadow: 0 0 15px rgba(176, 38, 255, 0.08);
-  }
-
-  /* Images styling */
-  img {
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 0 20px rgba(176, 38, 255, 0.25);
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 18px auto;
   }
 
   hr {
     border: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+    background: var(--border-color);
     margin: 40px 0;
   }
 </style>
@@ -252,14 +229,12 @@
   <h1>EKLIPSE DISCO</h1>
   <div class="eklipse-tagline">Arkitektura Teknologikoa, pfSense Proxmox, Zibersegurtasuna eta Kudeaketa Osoa</div>
   <div style="margin-top: 15px;">
-    <span class="badge-neon">🟣 Neon Purple & Dark Mode</span>
+    <span class="badge-neon">🟣 Purple Accent & Light Mode</span>
     <span class="badge-neon">🛡️ pfSense 2.6.0 Proxmox VE</span>
     <span class="badge-neon">🌐 Eklipse.eus & GLPI</span>
     <span class="badge-neon">🌱 Euskadi 2030 Agenda</span>
   </div>
 </div>
-
----
 
 ## 📌 Aurkibidea (Eduki-Taula)
 
