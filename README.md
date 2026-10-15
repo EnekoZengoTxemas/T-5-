@@ -1,7 +1,6 @@
 
 
 <div class="eklipse-hero">
-  <div style="font-size: 3rem; margin-bottom: 5px;">⚡ 🍸 🎶</div>
   <h1>EKLIPSE DISCO</h1>
 
 </div>
