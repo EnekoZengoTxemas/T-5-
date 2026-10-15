@@ -3,13 +3,7 @@
 <div class="eklipse-hero">
   <div style="font-size: 3rem; margin-bottom: 5px;">⚡ 🍸 🎶</div>
   <h1>EKLIPSE DISCO</h1>
-  <div class="eklipse-tagline">Arkitektura Teknologikoa, pfSense Proxmox, Zibersegurtasuna eta Kudeaketa Osoa</div>
-  <div style="margin-top: 15px;">
-    <span class="badge-neon">🟣 Purple Accent & Light Mode</span>
-    <span class="badge-neon">🛡️ pfSense 2.6.0 Proxmox VE</span>
-    <span class="badge-neon">🌐 Eklipse.eus & GLPI</span>
-    <span class="badge-neon">🌱 Euskadi 2030 Agenda</span>
-  </div>
+
 </div>
 
 ## 📌 Aurkibidea (Eduki-Taula)
