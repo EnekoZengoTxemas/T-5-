@@ -5,7 +5,7 @@
 <style>
   :root {
     --accent-purple: #7c3aed;
-    --light-bg: #ffffff;
+    --light-bg: #000000;
     --light-card: #f8fafc;
     --text-primary: #000000;
     --text-muted: #475569;
@@ -87,7 +87,7 @@
   .disco-nav-pill {
     display: inline-block;
     padding: 8px 16px;
-    background: #ffffff;
+    background: #000000;
     border: 1px solid var(--accent-purple);
     border-radius: 24px;
     color: #000000 !important;
@@ -101,7 +101,7 @@
 
   .disco-nav-pill:hover {
     background: var(--accent-purple) !important;
-    color: #ffffff !important;
+    color: #000000 !important;
     transform: translateY(-2px);
   }
 
@@ -155,7 +155,7 @@
     border-collapse: separate !important;
     border-spacing: 0 !important;
     margin: 20px 0 !important;
-    background-color: #ffffff !important;
+    background-color: #000000 !important;
     border: 1px solid var(--border-color) !important;
     border-radius: 10px !important;
     overflow: hidden !important;
