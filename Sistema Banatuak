@@ -1,0 +1,170 @@
+# Sistema Banatuak
+
+## 📌 Aurkibidea
+
+1. [Sarrera](#1-sarrera)
+2. [Eskema](#2-eskema)
+3. [Proxmox-en instalazioa](#3-proxmox-en-instalazioa)
+4. [Sareak](#4-sareak)
+5. [Makina birtual bat sortzea](#5-makina-birtual-bat-sortzea)
+6. [GLPI edukiontzia](#6-glpi-edukiontzia)
+7. [Makina guztiak](#7-makina-guztiak)
+
+
+---
+
+## 1. Sarrera
+
+Eklipse diskotekako zerbitzari guztiak makina fisiko bakar batean jarri ditugu, Proxmox VE erabilita.
+---
+
+## 2. Eskema
+
+pfSense da sarearen erdigunea: kanpoko sarea eta barneko bi sareak lotzen ditu, eta suebaki lana egiten du.
+
+```
+                    pfSense
+                       |
+    -------------------------------------------
+    |          |           |          |        |
+Jitsi/CUPS   GLPI      Windows    Webgunea   Bezeroak
+            (LXC)      Server               (Linux eta Windows 11)
+```
+
+| Makina | Zertarako |
+|---|---|
+| pfSense | Suebakia eta sareen arteko bideratzea |
+| Jitsi/CUPS | Bideokonferentziak (Jitsi Meet) eta inprimagailuak (CUPS) |
+| GLPI | Inbentarioa eta ticketak |
+| Windows Server | Domeinua, erabiltzaileak eta inprimagailuak |
+| Webgunea | Diskotekaren web orria |
+| Bezero Linux | Linux bezeroa |
+| Windows 11 | Windows bezeroa, domeinuan sartuta |
+
+---
+
+## 3. Proxmox-en instalazioa
+
+Lehenik Proxmox VE-ren ISO-a deskargatu genuen web orri ofizialetik eta Rufus-ekin USB batean grabatu genuen. Gero zerbitzaria USB-tik abiarazi genuen.
+
+Instalatzailean pauso hauek egin genituen:
+
+1. **Install Proxmox VE (Graphical)** aukeratu.
+2. Lizentzia onartu.
+3. Proxmox instalatzeko diskoa aukeratu.
+4. Herrialdea, ordu-zona eta teklatua jarri (Spain, Europe/Madrid, Spanish).
+5. `root` erabiltzailearen pasahitza eta email bat jarri.
+6. Sarea konfiguratu:
+   - Hostname: `pve.eklipse.local`
+   - IP: `192.168.71.160/24`
+   - Gateway: `192.168.71.X`
+   - DNS: `X.X.X.X`
+7. Laburpena begiratu eta **Install** sakatu.
+8. Amaitzean berrabiarazi eta USB-a kendu.
+
+
+
+Berrabiarazi ondoren, beste ordenagailu batetik nabigatzailean `https://192.168.71.160:8006` ireki genuen eta `root` erabiltzailearekin sartu ginen (Realm: *Linux PAM*).
+
+
+
+Eguneraketak jasotzeko, `pve > Updates > Repositories` atalean *enterprise* biltegia desgaitu eta *No-Subscription* biltegia gehitu genuen. Ondoren `Updates` atalean **Refresh** eta **Upgrade** egin genuen.
+
+---
+
+## 4. Sareak
+
+Proxmox-ek `vmbr0` sarea sortzen du berez, eta hori da kanpoko sarea. Barnerako beste bi sortu genituen:
+
+| Bridge | Sarea | Erabilera |
+|---|---|---|
+| vmbr0 | 192.168.71.0/24 | Kanpoko sarea eta Proxmox-en IP-a (pfSense WAN) |
+| vmbr1 | 192.168.0.0/24 | 1. barne-sarea |
+| vmbr2 | 192.168.2.0/24 | 2. barne-sarea |
+
+Sortzeko: `pve > System > Network > Create > Linux Bridge`. Izena jarri (`vmbr1`), IP-a hutsik utzi, eta **Create**. Gauza bera `vmbr2`-rekin, eta bukaeran **Apply Configuration**.
+
+IP-a hutsik uzten dugu pfSense-k kudeatzen dituelako sare horiek.
+
+
+
+---
+
+## 5. Makina birtual bat sortzea
+
+Adibide gisa Jitsi/CUPS makina (Ubuntu Server) nola sortu genuen azalduko dugu. Beste makinak berdin sortu genituen, balio batzuk aldatuta.
+
+### 5.1 ISO-a igo
+
+`local > ISO Images > Upload` atalean makina bakoitzaren ISO-a igo genuen (Ubuntu Server, Windows Server, Windows 11, pfSense...).
+
+
+
+### 5.2 Makina sortu
+
+Goian eskuinean dagoen **Create VM** botoian klik egin eta fitxak bete genituen:
+
+| Fitxa | Zer jarri genuen |
+|---|---|
+| General | ID `101`, izena `jitsi-cups` |
+| OS | Ubuntu Server ISO-a, Linux |
+| System | Lehenetsitakoa, Qemu Agent markatuta |
+| Disks | VirtIO SCSI, `32 GB` |
+| CPU | `2` nukleo |
+| Memory | `4096 MB` |
+| Network | `vmbr1`, VirtIO |
+
+Bukaeran **Finish** eman genion.
+
+
+
+### 5.3 Ubuntu instalatu
+
+Makina piztu eta **Console** fitxatik instalazioa egin genuen. Sarearen pantailan IP finkoa jarri genuen (*Edit IPv4 > Manual*):
+
+- Subnet: `192.168.0.0/24`
+- IP: `192.168.0.X`
+- Gateway: `192.168.0.X` (pfSense)
+- DNS: `192.168.0.X`
+
+Erabiltzailea sortu, OpenSSH markatu eta instalazioa amaitu zenean ISO-a kendu genuen (`Hardware > CD/DVD Drive > Do not use any media`).
+
+
+### 5.4 Beste makinen aldaketak
+
+- **pfSense:** hiru sare txartel behar ditu, bat sare bakoitzeko (`vmbr0`, `vmbr1` eta `vmbr2`). Txartelak `Hardware > Add > Network Device` atalean gehitu genizkion.
+- **Windows Server:** VirtIO gidariak dituen ISO-a ere gehitu behar izan genuen. Bestela instalatzaileak ez du diskoa ikusten.
+- **Webgunea:** Ubuntu Server, Jitsi/CUPS bezala.
+- **Windows 11:** *System* fitxan UEFI jarri eta EFI diskoa eta TPM-a gehitu behar dira, bestela ez da instalatzen. Instalatu ondoren domeinuan sartu genuen.
+- **Bezero Linux:** instalazio normala, barne-sareko IP batekin.
+
+---
+
+## 6. GLPI edukiontzia
+
+Lehenik Debian 12-ren txantiloia deskargatu genuen (`local > CT Templates > Templates`). Gero **Create CT** sakatu eta hau jarri genuen:
+
+| Fitxa | Zer jarri genuen |
+|---|---|
+| General | ID `100`, izena `glpi`, pasahitza |
+| Template | Debian 12 |
+| Disks | `16 GB` |
+| CPU | `2` nukleo |
+| Memory | `2048 MB` |
+| Network | `vmbr1`, IP `192.168.0.X/24`, gateway pfSense |
+
+
+
+---
+
+## 7. Makina guztiak
+
+| ID | Izena | Mota | Sistema | RAM | Diskoa | Sarea | IP |
+|---|---|---|---|---|---|---|---|
+| 100 | glpi | LXC | Debian 12 | 2 GB | 16 GB | vmbr1 | 192.168.0.X |
+| 101 | jitsi-cups | VM | Ubuntu Server | 4 GB | 32 GB | vmbr1 | 192.168.0.X |
+| 102 | windows-server | VM | Windows Server | 4 GB | 60 GB | vmbr1 | 192.168.0.X |
+| 103 | pfsense | VM | pfSense | 1 GB | 16 GB | vmbr0, vmbr1, vmbr2 | 192.168.71.X / 192.168.0.X / 192.168.2.X |
+| 104 | webgunea | VM | Ubuntu Server | 2 GB | 20 GB | vmbr2 | 192.168.2.X |
+| 105 | bezero-linux | VM | Linux | 2 GB | 25 GB | X | X |
+| 106 | windows11 | VM | Windows 11 | 4 GB | 64 GB | X | X |
