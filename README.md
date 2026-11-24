@@ -306,7 +306,7 @@ Datuak tokian bertan gordetzeko:
 ]
 ```
 
-![MongoDB Compass - eklipse_sentsoreak bilduma](assets/datu-baseak-mongodb-compass.png)
+![MongoDB Compass - eklipse_sentsoreak bilduma](img/datu-baseak-mongodb-compass.png)
 
 ---
 
@@ -320,7 +320,7 @@ Windows Serverraren egiaztapen orokor bat egin da IP mapa bat osatzeko.
 
 Kali Linux bidez egindako Nmap eskaneoan ikusi dugu zerbitzu aktiboak zabalik daudela eta OS detekzioak Windows Server 2019 adierazten duela.
 
-![Nmap zerbitzu-eskaneoa eta OS detekzioa](assets/ziber-nmap-servicios.png)
+![Nmap zerbitzu-eskaneoa eta OS detekzioa](img/ziber-nmap-servicios.png)
 
 ### Ahultasun edo hedapen bilaketa
 
@@ -506,7 +506,7 @@ PfSense-k lehenespenez WAN-ean sarrera guztia blokeatzen du, LAN-ean dena baimen
 | **Portatil Potentea** | Intel Core i7-13700H / AMD Ryzen 7 7735HS, 32 GB DDR5 RAM, 1 TB SSD NVMe PCIe 4.0, NVIDIA RTX 4060 8GB, 15.6" IPS Full HD/QHD pantaila | 1.350,00 € |
 | **Guztira Portatilak (2 Unitate):** | | **2.700,00 €** |
 
-![Harrerako portatilak erabiltzen](assets/eklipse-harrera-portatilak.png)
+![Harrerako portatilak erabiltzen](img/eklipse-harrera-portatilak.png)
 
 #### 2. Pantaila Handiak eta Mini PC Kutsuak/Ezkutatzekoak (2 Unitate)
 
@@ -531,7 +531,7 @@ PfSense-k lehenespenez WAN-ean sarrera guztia blokeatzen du, LAN-ean dena baimen
 | **Periferikoen Pack-a** | Teklatu eta sagu erresistenteak (USB) + Entzungailu mikrofonodunak | 40,00 € |
 | **Subtotal Mahaigaineko PCak (12 Unitate):** | | **7.380,00 €** |
 
-![Mahaigaineko PC pack-aren erabilera](assets/eklipse-mahaigaineko-pack.jpg)
+![Mahaigaineko PC pack-aren erabilera](img/eklipse-mahaigaineko-pack.jpg)
 
 ### Aurrekontu Orokorra eta Finantza Laburpena
 
@@ -556,9 +556,9 @@ Aparatuen muntaia lan-segurtasuneko eta deskarga elektrostatikoen (**ESD**) arau
 - **ESD Alfonbra Antiestatikoa:** Lan-azalera seguru eta eroalea.
 - **Alkohol Isopropilikoa (99.9%) eta pasta termiko dielektrikoa:** Bero-transmisio optimorako.
 
-![Muntaia lantegia eta lanabesak](assets/eklipse-muntaia-lanabesak.png)
+![Muntaia lantegia eta lanabesak](img/eklipse-muntaia-lanabesak.png)
 
-![Birziklatze sistema eta hondakinen kudeaketa lantegian](assets/eklipse-birziklatze-sistema.jpg)
+![Birziklatze sistema eta hondakinen kudeaketa lantegian](img/eklipse-birziklatze-sistema.jpg)
 
 ---
 
@@ -614,7 +614,7 @@ Dokumentazio atal honek Eklipse diskotekaren zerbitzu digital nagusiak biltzen d
 | **Editorea / Panela** | Kubio Builder | GLPI Kudeaketa Panela |
 | **Letra-tipoak** | CSS gehigarria: Rajdhani & Inter | Lehenetsiak (Sistemakoak) |
 
-![WordPress eta GLPI Aurkezpena](assets/WP.png)
+![WordPress eta GLPI Aurkezpena](img/WP.png)
 
 ---
 
@@ -637,7 +637,7 @@ Webgunea Eklipse diskotekaren aurpegi publikoa da. Honako helburuak ditu:
 
 #### Edukia eta orriak
 
-![WordPress-eko orrien zerrenda](assets/wp-orriak.png)
+![WordPress-eko orrien zerrenda](img/wp-orriak.png)
 
 | Orria | Egoera | Funtzioa eta Deskribapena |
 | :--- | :--- | :--- |
@@ -664,7 +664,7 @@ Webgunea Eklipse diskotekaren aurpegi publikoa da. Honako helburuak ditu:
 #### Pluginak
 Webgunean 7 plugin instalatu dira zerbitzua eta segurtasuna optimizatzeko:
 
-![WordPress Pluginak](assets/image1.png)
+![WordPress Pluginak](img/image1.png)
 
 | Plugina | Funtzioa |
 | :--- | :--- |
@@ -696,7 +696,7 @@ Webgunearen diseinua diskotekaren giroarekin bat datorren **itxura iluna eta fut
 ##### Letra-tipoen pertsonalizazioa (CSS gehigarria)
 Diskotekaren estetika bermatzeko, Kubio-ren **«CSS gehigarria»** atalean kode hau txertatu da:
 
-![Kubio-ren CSS gehigarria atala](assets/wp-kubio-css.png)
+![Kubio-ren CSS gehigarria atala](img/wp-kubio-css.png)
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@600;700&display=swap');
@@ -743,7 +743,7 @@ Helbidea: `glpi.eklipse.eus`
 
 #### Hasierako panela
 
-![GLPI-ren hasierako panela](assets/glpi-panela.png)
+![GLPI-ren hasierako panela](img/glpi-panela.png)
 
 Panelak hauek erakusten ditu: ekipo-motak (softwarea, ordenagailuak, monitoreak, inprimagailuak), hileko tiketen egoera eta segurtasun-abisuak.
 
@@ -751,7 +751,7 @@ Panelak hauek erakusten ditu: ekipo-motak (softwarea, ordenagailuak, monitoreak,
 
 Sisteman **9 erabiltzaile** daude konfiguratuta, guztiak aktibo:
 
-![GLPI-ko erabiltzaileen zerrenda](assets/glpi-erabiltzaileak.png)
+![GLPI-ko erabiltzaileen zerrenda](img/glpi-erabiltzaileak.png)
 
 | Erabiltzailea | Mota | Perfila (rola) | Zertarako / Funtzioa |
 | :--- | :--- | :--- | :--- |
