@@ -306,7 +306,7 @@ Datuak tokian bertan gordetzeko:
 ]
 ```
 
-![MongoDB Compass - eklipse_sentsoreak bilduma](img/datu-baseak-mongodb-compass.png)
+![MongoDB Compass - eklipse_sentsoreak bilduma](datu-baseak-mongodb-compass.png)
 
 ---
 
