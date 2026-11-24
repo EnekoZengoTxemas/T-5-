@@ -272,9 +272,9 @@ CREATE TABLE sarrerak (
     FOREIGN KEY (erreserba_id) REFERENCES vip_erreserbak(erreserba_id)
 );
 
-![MySQL](Eklipse_db.png)
-```
 
+```
+![MySQL](Eklipse_db.png)
 ### Diseinuaren Punturik Garrantzitsuenak
 
 - **BEZ eta Zerga Kontrola** (`bez_motak` / `salmentak`): Salmenta bakoitzean `oinarri_zergapea`, `bez_totala` eta `prezio_totala` bereizten dira kontabilitate garbia izateko.
