@@ -326,9 +326,9 @@ Kali Linux bidez egindako Nmap eskaneoan ikusi dugu zerbitzu aktiboak zabalik da
 
 TCP portu irekiak eta ahultasunak aztertu dira. Hydra bidez saiatu arren, brute-force erasoa geldotuta geratu da sarbide-politika zorrotzengatik.
 
-![Nmap vuln script - ahultasun bilaketa](assets/ziber-nmap-vuln.png)
+![Nmap vuln script - ahultasun bilaketa](ziber-nmap-vuln.png)
 
-![Hydra bidezko brute-force saiakera](assets/ziber-hydra-bruteforce.png)
+![Hydra bidezko brute-force saiakera](ziber-hydra-bruteforce.png)
 
 ### Ahultasun ustiaketa
 
