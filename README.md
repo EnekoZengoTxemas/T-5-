@@ -272,7 +272,7 @@ CREATE TABLE sarrerak (
     FOREIGN KEY (erreserba_id) REFERENCES vip_erreserbak(erreserba_id)
 );
 
-![MySQL](Eklipse_db)
+![MySQL](Eklipse_db.png)
 ```
 
 ### Diseinuaren Punturik Garrantzitsuenak
