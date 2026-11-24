@@ -16,7 +16,7 @@
   <a class="disco-nav-pill" href="#6-eklipse--webgunea-eta-glpi-dokumentazioa">6. Webgunea & GLPI Osoa</a>
 </div>
 
-1. [Datu-Baseen Estrategia eta Arkitektura — Diskoteka](#1-datu-baseen-estrategia-eta-arkitektura---diskoteka)
+1. [Datu-Baseen Estrategia eta Arkitektura — Diskoteka](#1-datu-baseen-estrategia-eta-arkitektura---diskoteka)da
    - [1.1. Denbora Errealeko Sarrera (IoT eta Lokalaren Monitorizazioa)](#11-denbora-errealeko-sarrera-iot-eta-lokalaren-monitorizazioa)
    - [1.2. Harrera Zerbitzua eta Bezeroen Kudeaketa](#12-harrera-zerbitzua-eta-bezeroen-kudeaketa)
    - [1.3. Logistika eta Eragiketa Datuak (Stock-a eta Salmentak)](#13-logistika-eta-eragiketa-datuak-stock-a-eta-salmentak)
@@ -271,6 +271,8 @@ CREATE TABLE sarrerak (
     FOREIGN KEY (salmenta_id) REFERENCES salmentak(salmenta_id),
     FOREIGN KEY (erreserba_id) REFERENCES vip_erreserbak(erreserba_id)
 );
+
+![MySQL](Eklipse_db)
 ```
 
 ### Diseinuaren Punturik Garrantzitsuenak
